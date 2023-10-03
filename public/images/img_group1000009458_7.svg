@@ -1,0 +1,41 @@
+<svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_1_102081)">
+<path d="M36.2479 30.0037C36.2479 26.5519 33.4493 23.7537 29.997 23.7537C26.5447 23.7537 23.7461 26.5519 23.7461 30.0037C23.7461 33.4554 26.5447 36.2537 29.997 36.2537C33.4493 36.2537 36.2479 33.4554 36.2479 30.0037Z" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M16.25 30.001L18.7504 30.001" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M41.25 30.001L43.7504 30.001" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M20.2734 39.7266L22.0487 37.9516" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M37.9531 22.0498L39.7284 20.2748" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M30 43.7512L30 41.2512" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M30 18.7522L30 16.2522" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M39.7284 39.7266L37.9531 37.9516" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M22.0487 22.0498L20.2734 20.2748" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<g filter="url(#filter0_b_1_102081)">
+<ellipse cx="30" cy="29.8956" rx="30" ry="29.8956" transform="rotate(180 30 29.8956)" fill="white" fill-opacity="0.1"/>
+</g>
+<g clip-path="url(#clip1_1_102081)">
+<path d="M36.2479 30.0039C36.2479 26.5521 33.4493 23.7539 29.997 23.7539C26.5447 23.7539 23.7461 26.5521 23.7461 30.0039C23.7461 33.4557 26.5447 36.2539 29.997 36.2539C33.4493 36.2539 36.2479 33.4557 36.2479 30.0039Z" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M16.25 30.001L18.7504 30.001" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M41.25 30.001L43.7504 30.001" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M20.2734 39.7266L22.0487 37.9516" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M37.9531 22.0498L39.7284 20.2748" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M30 43.751L30 41.251" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M30 18.752L30 16.252" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M39.7284 39.7266L37.9531 37.9516" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M22.0487 22.0498L20.2734 20.2748" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<filter id="filter0_b_1_102081" x="-60" y="-60" width="180" height="179.791" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feGaussianBlur in="BackgroundImageFix" stdDeviation="30"/>
+<feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_1_102081"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_1_102081" result="shape"/>
+</filter>
+<clipPath id="clip0_1_102081">
+<rect width="30" height="30.0045" fill="white" transform="translate(15 45) rotate(-90)"/>
+</clipPath>
+<clipPath id="clip1_1_102081">
+<rect width="30" height="30.0045" fill="white" transform="translate(15 45) rotate(-90)"/>
+</clipPath>
+</defs>
+</svg>
