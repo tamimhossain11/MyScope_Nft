@@ -20,10 +20,12 @@ const PopupProfilepagePage = () => {
     <>
       <div className="bg-black-900 flex flex-col font-sfpro sm:gap-10 md:gap-10 gap-[120px] items-end justify-start mx-auto py-10 w-full">
         <div className="flex flex-col items-start md:px-5 w-full">
+        
           <div className="overflow-x-auto w-full">
+          <Navbar/>  
             <div className="h-[1155px] md:h-[1946px] sm:h-[920px] relative w-full">
 
-              <Navbar/>  
+              
               <div className="absolute h-[1155px] md:h-[1946px] sm:h-[920px] inset-[0] justify-center m-auto overflow-auto w-full">
                 <div className="absolute bottom-[0] flex flex-col md:gap-10 gap-[60px] items-center justify-start right-[0] w-full">
                   <Text

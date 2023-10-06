@@ -137,13 +137,14 @@ module.exports = {
         gradient3: "linear-gradient(223deg ,#ffacff,#f7a0f9)",
       },
       fontFamily: {
-        sfpro: "SF Pro",
+        sfpro: "SF Pro Display",
         dmsans: "DM Sans",
         rubik: "Rubik",
         sfprodisplay: "SF Pro Display",
         mulish: "Mulish",
         ebrima: "Ebrima",
         alata: "Alata",
+
       },
       boxShadow: {
         bs5: "0px 5px  30px 0px #9f4debcc",

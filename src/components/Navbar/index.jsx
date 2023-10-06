@@ -3,6 +3,7 @@ import { Button, Img, Input, Text } from "components";
 import { CloseSVG } from "../../assets/images";
 import ConnectwalletpageModal from "modals/Connectwalletpage";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const Navbar = ({ onIconClick }) => {
 
@@ -86,42 +87,54 @@ const Navbar = ({ onIconClick }) => {
                     ></Input>
                     <div className="flex flex-col gap-[11px] justify-start md:ml-[0] ml-[100px] w-[54%] md:w-full">
                         <div className="flex md:flex-col flex-row gap-[45px] items-start justify-start w-auto md:w-full">
+                            <Link to="/homepage">
                             <Text
                                 className="text-white-A700 text-xl w-auto"
                                 size="txtSFProSemibold20"
                             >
                                 Home
                             </Text>
+                            </Link>
+                            <Link to="/itamedetailspage">
                             <Text
                                 className="text-white-A700 text-xl w-auto"
                                 size="txtSFProRegular20"
                             >
                                 Pages
                             </Text>
+                            </Link>
+                            <Link to="/allnftspage">
                             <Text
                                 className="text-white-A700 text-xl w-auto"
                                 size="txtSFProRegular20"
                             >
                                 Explore
                             </Text>
+                            </Link>
+                            <Link to="/helpcenterpage">
                             <Text
                                 className="text-white-A700 text-xl w-auto"
                                 size="txtSFProRegular20"
                             >
                                 Resources
                             </Text>
+                            </Link>
+                            <Link to="/createpage">
                             <Text
                                 className="text-white-A700 text-xl w-auto"
                                 size="txtSFProRegular20"
                             >
                                 Create
                             </Text>
+                            </Link>
+                            <Link to="/nftgamepage">
                             <Text
                                 className="text-white-A700 text-xl w-auto"
                                 size="txtSFProRegular20"
                             >
                                 NFT GAme
                             </Text>
+                            </Link>
                         </div>
                         <Img
                             className="h-[5px] md:ml-[0] ml-[21px]"

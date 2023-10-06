@@ -9,3 +9,5 @@
  @font-face { font-display: swap; font-style : normal; src: url("assets/fonts/DMSansBold.ttf"); font-family : "DM Sans"; font-weight : 700;  }
  @font-face { font-display: swap; font-style : normal; src: url("assets/fonts/RubikBold.ttf"); font-family : "Rubik"; font-weight : 700;  }
  @font-face { font-display: swap; font-style : normal; src: url("assets/fonts/RubikRomanBold.ttf"); font-family : "Rubik"; font-weight : 700;  }
+ @font-face { font-display: swap; font-style : normal; src: url("assets/fonts/SFProText-Regular.ttf"); font-family: 'SF Pro Text';font-weight: normal;}
+ @font-face { font-display: swap; font-style : normal; src: url("assets/fonts/SF-Pro-Display-Regular.ttf"); font-family: 'SF Pro Display';font-weight: normal;}

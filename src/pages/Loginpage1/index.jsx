@@ -63,7 +63,7 @@ const Loginpage1Page = () => {
             <div className="flex flex-col gap-[55px] items-center justify-start w-full">
               <div className="flex flex-col gap-3 items-center justify-start">
                 <Text
-                  className="sm:text-4xl md:text-[38px] text-[40px] text-black-900 text-center"
+                  className="sfprotext-regular sm:text-4xl md:text-[38px] text-[40px] text-black-900 text-center"
                   size="txtSFProBold40"
                 >
                   Login Your Account
@@ -216,7 +216,7 @@ const Loginpage1Page = () => {
                   className="text-black-900 text-lg"
                   size="txtSFProRegular18"
                 >
-                  Concoct With Social Media Or Your Wallet{" "}
+                  Connect With Social Media Or Your Wallet{" "}
                 </Text>
               </div>
             </div>

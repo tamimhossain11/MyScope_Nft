@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useState, useRef } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import SwiperCore, { EffectCoverflow, Navigation } from "swiper/core";
 
 import {
   Button,
@@ -9,17 +12,36 @@ import {
   Text,
 } from "components";
 import Navbar from "components/Navbar";
+import HomeScrollCards from "components/HomeScrollCards";
 
-
+SwiperCore.use([EffectCoverflow, Navigation]);
 
 const HomepagePage = () => {
+  const [currentCardIndex, setCurrentCardIndex] = useState(0);
+
+  const handleNextCard = () => {
+    const newIndex = currentCardIndex + 1;
+
+    if (newIndex < 7) { // Adjust to the total number of cards
+      setCurrentCardIndex(newIndex);
+    }
+  };
+
+  const handlePrevCard = () => {
+    const newIndex = currentCardIndex - 1;
+
+    if (newIndex >= 0) {
+      setCurrentCardIndex(newIndex);
+    }
+  };
+
 
 
   return (
     <>
       <div className="bg-black-900 flex flex-col font-sfpro items-start justify-start mx-auto py-10 w-full">
         <div className="flex flex-col items-center justify-start mb-[11px] md:px-5 w-full">
-        <Navbar/>
+          <Navbar />
           <div className="mt-[149px] overflow-auto overflow-x-auto w-full">
             <div className="flex flex-col md:gap-10 gap-[60px] items-center justify-start w-full">
               <Text
@@ -31,280 +53,61 @@ const HomepagePage = () => {
                   Creative NFTs
                 </>
               </Text>
-              <div className="flex md:flex-col flex-row md:gap-10 items-center justify-between w-full">
-                <div className="flex flex-col relative shadow-bs1 w-[13%] md:w-full">
-                  <Img
-                    className="h-[344px] mx-auto object-cover w-full"
-                    src="images/img_vector13.png"
-                    alt="vectorThirteen"
-                  />
-                  <div
-                    className="bg-cover bg-no-repeat flex flex-col h-[114px] items-start justify-start mt-[-8.99px] mx-auto p-2.5 w-full z-[1]"
-                    style={{
-                      backgroundImage: "url('images/img_group2924.svg')",
-                    }}
-                  >
-                    <div className="flex flex-row gap-[11px] items-start justify-start mb-[11px] mt-[15px] w-[94%] md:w-full">
-                      <Img
-                        className="h-[60px] md:h-auto mt-[5px] rotate-[-1deg] rounded-[50%] w-[60px]"
-                        src="images/img_ellipse179.png"
-                        alt="ellipse179"
-                      />
-                      <div className="flex flex-col items-start justify-start rotate-[4deg]">
-                        <Text
-                          className="text-2xl md:text-[22px] text-black-900_01 sm:text-xl"
-                          size="txtSFProBold24"
-                        >
-                          Justin Stanton
-                        </Text>
-                        <Text
-                          className="lowercase ml-0.5 md:ml-[0] mt-0.5 text-base text-deep_purple-A200"
-                          size="txtSFProRegular16"
-                        >
-                          @EmersonLubin
-                        </Text>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="h-[560px] md:h-[858px] relative w-[72%] md:w-full">
-                  <div className="absolute h-[538px] md:h-[858px] inset-[0] justify-center m-auto w-full">
-                    <div className="flex md:flex-col flex-row md:gap-10 h-full items-center justify-between m-auto w-full">
-                      <div className="md:h-[419px] h-[538px] relative w-2/5 md:w-full">
-                        <div className="absolute md:h-[399px] h-[502px] inset-y-[0] left-[0] my-auto shadow-bs2 w-[46%]">
-                          <Img
-                            className="absolute h-[399px] inset-x-[0] mx-auto object-cover top-[0] w-full"
-                            src="images/img_vector16.png"
-                            alt="vectorSixteen"
-                          />
-                          <div
-                            className="absolute bg-cover bg-no-repeat bottom-[0] flex flex-col h-[119px] inset-x-[0] items-center justify-end mx-auto p-4 w-full"
-                            style={{
-                              backgroundImage:
-                                "url('images/img_group2925.svg')",
-                            }}
-                          >
-                            <div className="flex flex-row gap-2.5 items-start justify-start mb-[7px] mt-3 w-[98%] md:w-full">
-                              <Img
-                                className="h-[60px] md:h-auto mt-1.5 rotate-[-1deg] rounded-[50%] w-[60px]"
-                                src="images/img_ellipse179_60x60.png"
-                                alt="ellipse179_One"
-                              />
-                              <div className="flex flex-col items-start justify-start mb-[7px] rotate-[4deg]">
-                                <Text
-                                  className="text-2xl md:text-[22px] text-black-900_01 sm:text-xl"
-                                  size="txtSFProBold24"
-                                >
-                                  Justin Stanton
-                                </Text>
-                                <Text
-                                  className="lowercase ml-0.5 md:ml-[0] mt-0.5 text-base text-deep_purple-A200"
-                                  size="txtSFProRegular16"
-                                >
-                                  @EmersonLubin
-                                </Text>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="absolute flex flex-col inset-y-[0] my-auto right-[0] shadow-bs3 w-[56%]">
-                          <Img
-                            className="h-[419px] mx-auto object-cover w-full"
-                            src="images/img_vector13.png"
-                            alt="vectorThirteen_One"
-                          />
-                          <div
-                            className="bg-cover bg-no-repeat flex flex-col h-[129px] items-start justify-start mt-[-10.97px] mx-auto p-5 w-full z-[1]"
-                            style={{
-                              backgroundImage:
-                                "url('images/img_group2924.svg')",
-                            }}
-                          >
-                            <div className="flex flex-row gap-[9px] items-end justify-start mb-3.5 mt-[3px] w-[81%] md:w-full">
-                              <Img
-                                className="h-[60px] md:h-auto mt-2.5 rotate-[-1deg] rounded-[50%] w-[60px]"
-                                src="images/img_ellipse179_1.png"
-                                alt="ellipse179_Two"
-                              />
-                              <div className="flex flex-col items-start justify-start mb-1 rotate-[4deg]">
-                                <Text
-                                  className="text-2xl md:text-[22px] text-black-900_01 sm:text-xl"
-                                  size="txtSFProBold24"
-                                >
-                                  Justin Stanton
-                                </Text>
-                                <Text
-                                  className="lowercase ml-0.5 md:ml-[0] text-base text-deep_purple-A200"
-                                  size="txtSFProRegular16"
-                                >
-                                  @EmersonLubin
-                                </Text>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="md:h-[399px] h-[502px] relative shadow-bs2 w-[19%] md:w-full">
-                        <div
-                          className="absolute bg-cover bg-no-repeat bottom-[0] flex flex-col h-[119px] inset-x-[0] items-center justify-start mx-auto p-[11px] rotate-[180deg] w-full"
-                          style={{
-                            backgroundImage:
-                              "url('images/img_group1000009949.svg')",
-                          }}
-                        >
-                          <div className="flex flex-row gap-1.5 items-end justify-start mb-[17px] mt-2 rotate-[172deg] w-[96%] md:w-full">
-                            <Img
-                              className="h-[68px] md:h-auto mb-0.5 rotate-[-1deg] rounded-[50%] w-[68px]"
-                              src="images/img_ellipse179_68x68.png"
-                              alt="ellipse179_Three"
-                            />
-                            <div className="md:h-[47px] h-[63px] mt-[7px] relative rotate-[4deg] w-[69%]">
-                              <Text
-                                className="absolute inset-x-[0] mx-auto text-2xl md:text-[22px] text-black-900_01 sm:text-xl top-[0] w-max"
-                                size="txtSFProBold24"
-                              >
-                                Justin Stanton
-                              </Text>
-                              <Text
-                                className="absolute bottom-[0] left-[0] lowercase text-base text-deep_purple-A200"
-                                size="txtSFProRegular16"
-                              >
-                                @EmersonLubin
-                              </Text>
-                            </div>
-                          </div>
-                        </div>
-                        <Img
-                          className="absolute h-[399px] inset-x-[0] mx-auto object-cover top-[0] w-full"
-                          src="images/img_vector16_399x271.png"
-                          alt="vectorSixteen_One"
-                        />
-                      </div>
-                    </div>
-                    <div className="absolute flex flex-col inset-y-[0] my-auto right-[17%] shadow-bs4 w-[22%]">
-                      <Img
-                        className="h-[419px] mx-auto object-cover w-full"
-                        src="images/img_vector13_419x330.png"
-                        alt="vectorThirteen_Two"
-                      />
-                      <div
-                        className="bg-cover bg-no-repeat flex flex-col h-[129px] items-start justify-start mt-[-11.81px] mx-auto p-5 w-full z-[1]"
-                        style={{
-                          backgroundImage:
-                            "url('images/img_group1000009947.svg')",
-                        }}
-                      >
-                        <div className="flex flex-row gap-2.5 items-end justify-start mb-[15px] mt-1.5 w-[84%] md:w-full">
-                          <Img
-                            className="h-[67px] md:h-auto rotate-[-8deg] rounded-[50%] w-[67px]"
-                            src="images/img_ellipse179_67x67.png"
-                            alt="ellipse179_Four"
-                          />
-                          <div className="h-14 md:h-[39px] mb-0.5 mt-2 relative rotate-[-3deg] w-[68%]">
-                            <Text
-                              className="absolute inset-x-[0] mx-auto text-2xl md:text-[22px] text-black-900_01 sm:text-xl top-[0] w-max"
-                              size="txtSFProBold24"
-                            >
-                              Justin Stanton
-                            </Text>
-                            <Text
-                              className="absolute bottom-[0] left-[0] lowercase text-base text-deep_purple-A200"
-                              size="txtSFProRegular16"
-                            >
-                              @EmersonLubin
-                            </Text>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="absolute flex flex-col h-full inset-[0] items-center justify-center m-auto shadow-bs5 w-[27%]">
-                    <Img
-                      className="h-[440px] md:h-auto object-cover w-full"
-                      src="images/img_rectangle66553.png"
-                      alt="rectangle66553"
-                    />
-                    <div className="bg-white-A700 flex flex-col items-start justify-start p-5 rounded-bl-[15px] rounded-br-[15px] w-full">
-                      <div className="flex flex-row gap-[15px] items-center justify-start w-[73%] md:w-full">
-                        <Img
-                          className="h-20 md:h-auto rounded-[50%] w-20"
-                          src="images/img_ellipse196.png"
-                          alt="ellipse196"
-                        />
-                        <div className="flex flex-col gap-[5px] items-start justify-start">
-                          <Text
-                            className="text-2xl md:text-[22px] text-black-900_01 sm:text-xl"
-                            size="txtSFProBold24"
-                          >
-                            Emerson Lubin
-                          </Text>
-                          <Text
-                            className="lowercase text-base text-deep_purple-A200"
-                            size="txtSFProRegular16"
-                          >
-                            @EmersonLubin
-                          </Text>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="flex flex-col relative shadow-bs6 w-[13%] md:w-full">
-                  <Img
-                    className="h-[344px] mx-auto object-cover w-full"
-                    src="images/img_vector13_344x270.png"
-                    alt="vectorThirteen_Three"
-                  />
-                  <div
-                    className="bg-cover bg-no-repeat flex flex-col h-[114px] items-center justify-start mt-[-9.63px] mx-auto p-[13px] rotate-[180deg] w-full z-[1]"
-                    style={{
-                      backgroundImage: "url('images/img_group1000009951.svg')",
-                    }}
-                  >
-                    <div className="flex flex-row gap-[7px] items-end justify-start mb-[13px] mt-1 rotate-[173deg] w-[99%] md:w-full">
-                      <Img
-                        className="h-[67px] md:h-auto mb-0.5 rotate-[-1deg] rounded-[50%] w-[67px]"
-                        src="images/img_ellipse179_2.png"
-                        alt="ellipse179_Five"
-                      />
-                      <div className="md:h-[41px] h-[57px] mt-3 relative rotate-[4deg] w-[69%]">
-                        <Text
-                          className="absolute inset-x-[0] mx-auto text-2xl md:text-[22px] text-black-900_01 sm:text-xl top-[0] w-max"
-                          size="txtSFProBold24"
-                        >
-                          Justin Stanton
-                        </Text>
-                        <Text
-                          className="absolute bottom-[0] left-[0] lowercase text-base text-deep_purple-A200"
-                          size="txtSFProRegular16"
-                        >
-                          @EmersonLubin
-                        </Text>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <div className="flex md:flex-col flex-row md:gap-10  w-full">
+              <div className="mt-[149px] overflow-auto-full">
+              <Swiper
+              style={{width:"2200x",}}
+                  effect="coverflow"
+                  grabCursor={true}
+                  centeredSlides={true}
+                  slidesPerView={7}
+                  spaceBetween={20}
+                  coverflowEffect={{
+                    rotate: 30,
+                    stretch: 0,
+                    depth: 100,
+                    modifier: 1,
+                  }}
+                  navigation={{
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                  }}
+                  onSlideChange={(swiper) => {
+                    setCurrentCardIndex(swiper.activeIndex);
+                  }}
+                >
+                  {Array.from({ length: 7 }).map((_, index) => (
+                    <SwiperSlide key={index} className={`scroll-card`}>
+                      {/* Render HomeScrollCards component */}
+                      <HomeScrollCards isActive={index === currentCardIndex} />
+                      
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+
+            </div>
+            </div>
               <div className="flex flex-row gap-10 items-center justify-center w-[16%] md:w-full">
-                <Img
-                  className="h-[60px] w-[60px]"
-                  src="images/img_group1000008676.svg"
-                  alt="group1000008676"
-                />
-                <PagerIndicator
-                  className="flex h-3.5 w-[127px]"
-                  count={4}
-                  activeCss="inline-block cursor-pointer h-3.5 bg-deep_purple-A200 w-10 rounded-[7px]"
-                  activeIndex={1}
-                  inactiveCss="inline-block cursor-pointer rounded-[50%] h-3.5 bg-white-A700 w-3.5"
-                  selectedWrapperCss="inline-block mx-[7.50px]"
-                  unselectedWrapperCss="inline-block mx-[7.50px]"
-                />
-                <Img
-                  className="h-[60px] w-[60px]"
-                  src="images/img_group1000008677.svg"
-                  alt="group1000008677"
-                />
+              <Img
+                className="h-[60px] w-[60px]"
+                src="images/img_group1000008676.svg"
+                alt="group1000008676"
+                onClick={handlePrevCard}
+              />
+              <PagerIndicator
+                className="flex h-2.5 w-[100px]"
+                count={7} // Adjust the number of cards
+                currentCardIndex={currentCardIndex}
+                setCurrentCardIndex={setCurrentCardIndex}
+                inactiveCss="inline-block cursor-pointer rounded-[50%] h-[10px] bg-gray-500_75 w-[10px]"
+                activeCss="inline-block cursor-pointer rounded-[20px] h-[10px] bg-deep_purple-500"
+              />
+              <Img
+                className="h-[60px] w-[60px]"
+                src="images/img_group1000008677.svg"
+                alt="group1000008677"
+                onClick={handleNextCard}
+              />
               </div>
             </div>
           </div>
