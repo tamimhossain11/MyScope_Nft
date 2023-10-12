@@ -7,7 +7,7 @@ const HomeScrollCards = () => {
 
     return (
         <>
-            <div className=" flex flex-col h-[560px] md:h-[858px] rounded-[15px]   md:w-full inset-[0] items-center relative w-[100px]  m-auto shadow-bs5 ">
+            <div className=" flex flex-col h-[560px] md:h-[858px] rounded-[15px]   md:w-full inset-[0] items-center relative w-[400px]  m-auto shadow-bs5 ">
                 <Img
                     className="h-[440px] md:h-auto object-cover w-full"
                     src="images/img_rectangle66553.png"

@@ -54,14 +54,16 @@ const HomepagePage = () => {
                 </>
               </Text>
               <div className="flex md:flex-col flex-row md:gap-10  w-full">
-              <div className="mt-[149px] overflow-auto-full">
+              
               <Swiper
-              style={{width:"2200x",}}
+                 
                   effect="coverflow"
                   grabCursor={true}
                   centeredSlides={true}
-                  slidesPerView={7}
+                  slidesPerView={2}
                   spaceBetween={20}
+                  width={'1600px'}
+                  
                   coverflowEffect={{
                     rotate: 30,
                     stretch: 0,
@@ -76,8 +78,8 @@ const HomepagePage = () => {
                     setCurrentCardIndex(swiper.activeIndex);
                   }}
                 >
-                  {Array.from({ length: 7 }).map((_, index) => (
-                    <SwiperSlide key={index} className={`scroll-card`}>
+                  {Array.from({ length: 1 }).map((_, index) => (
+                    <SwiperSlide key={index} className={`scroll-card horizontal`}>
                       {/* Render HomeScrollCards component */}
                       <HomeScrollCards isActive={index === currentCardIndex} />
                       
@@ -85,7 +87,7 @@ const HomepagePage = () => {
                   ))}
                 </Swiper>
 
-            </div>
+
             </div>
               <div className="flex flex-row gap-10 items-center justify-center w-[16%] md:w-full">
               <Img
