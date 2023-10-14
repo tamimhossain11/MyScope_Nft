@@ -1,8 +1,43 @@
-import React from "react";
-
-import { Button, FloatingInput, Img, Text } from "components";
+import React, { useState } from "react";
+import { useGoogleLogin } from "@react-oauth/google";
+import { Button, Img, Line, Text } from "components";
+import IconButton from '@mui/material/IconButton';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import InputLabel from '@mui/material/InputLabel';
+import InputAdornment from '@mui/material/InputAdornment';
+import TaskAltIcon from '@mui/icons-material/TaskAlt';
+import FormControl from '@mui/material/FormControl';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import { Link } from "react-router-dom";
 
 const RegisterpagePage = () => {
+  const [email, setEmail] = useState("");
+  const [isEmailCorrect, setIsEmailCorrect] = useState(false);
+
+  const emailValidation = (e) => {
+    const pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+    const emailValue = e.target.value;
+    setEmail(emailValue);
+
+    if (emailValue.match(pattern)) {
+      setIsEmailCorrect(true);
+    } else {
+      setIsEmailCorrect(false);
+    }
+  };
+
+  const [showPassword, setShowPassword] = React.useState(false);
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
+  const googleSignIn = useGoogleLogin({
+    onSuccess: (res) => {
+      console.log("res", res);
+      alert("Login successful. 😍");
+    },
+  });
   return (
     <>
       <div className="bg-black-900 flex flex-col font-sfpro items-center justify-start mx-auto p-[60px] md:px-10 sm:px-5 w-full">
@@ -38,146 +73,218 @@ const RegisterpagePage = () => {
                 Sign Up to Continue
               </Text>
               <div className="flex flex-col items-start justify-start mt-[54px] w-full">
-                <div className="md:h-[68px] h-[83px] relative w-full">
-                  <div className="absolute bg-white-A700 border border-deep_purple-A200 border-solid bottom-[0] flex flex-col font-dmsans inset-x-[0] items-center justify-start mx-auto p-[19px] rounded-[15px] w-full">
-                    <div className="flex flex-row sm:gap-10 items-center justify-between my-1 w-full">
-                      <Text
-                        className="text-base text-black-900"
-                        size="txtDMSansMedium16"
-                      >
-                        <span className="text-black-900 font-sfpro text-left font-medium">
-                          johndeo.20@gmail.co
-                        </span>
-                        <span className="text-gray-400 font-sfpro text-left font-medium">
-                          {" "}
-                        </span>
-                        <span className="text-black-900 font-sfpro text-left font-medium">
-                          |
-                        </span>
-                      </Text>
-                      <Img
-                        className="h-[22px] w-[22px]"
-                        src="images/img_location.svg"
-                        alt="location"
-                      />
-                    </div>
-                  </div>
-                  <Button
-                    className="!text-deep_purple-A200 absolute cursor-pointer font-medium font-sfpro leading-[normal] left-[2%] min-w-[76px] text-center text-xl top-[0]"
-                    shape="square"
-                    color="white_A700"
-                    size="xs"
-                    variant="fill"
-                  >
-                    Email*
-                  </Button>
-                </div>
-                <div className="md:h-[100px] h-[83px] mt-[30px] relative w-full">
-                  <div className="absolute bg-white-A700 border border-gray-400_01 border-solid bottom-[0] flex flex-row sm:gap-10 inset-x-[0] items-center justify-between mx-auto p-5 rounded-[15px] w-full">
-                    <Text
-                      className="text-base text-black-900"
-                      size="txtSFProBold16"
-                    >
-                      +1 (454) 3421 1432
-                    </Text>
-                    <Img
-                      className="h-[22px] my-1 w-[22px]"
-                      src="images/img_call_black_900.svg"
-                      alt="call"
-                    />
-                  </div>
-                  <Button
-                    className="!text-gray-400_01 absolute cursor-pointer font-medium leading-[normal] left-[2%] min-w-[160px] text-center text-xl top-[0]"
-                    shape="square"
-                    color="white_A700"
-                    size="xs"
-                    variant="fill"
-                  >
-                    Mobile Number
-                  </Button>
-                </div>
-                <div className="md:h-[104px] h-[78px] mt-[34px] relative w-full">
-                  <div className="absolute bg-white-A700 border border-gray-400_01 border-solid bottom-[0] flex flex-row sm:gap-10 inset-x-[0] items-center justify-between mx-auto p-5 rounded-[15px] w-full">
-                    <Text
-                      className="text-base text-black-900"
-                      size="txtSFProBold16"
-                    >
-                      @jon
-                    </Text>
-                    <Img
-                      className="h-[22px] my-1 w-[22px]"
-                      src="images/img_user.svg"
-                      alt="user"
-                    />
-                  </div>
-                  <Text
-                    className="absolute left-[3%] text-gray-400_01 text-xl top-[0]"
-                    size="txtSFProMedium20"
-                  >
-                    User Name*
-                  </Text>
-                </div>
-                <div className="md:h-[103px] h-[79px] mt-[33px] relative w-full">
-                  <div className="absolute bg-white-A700 border border-gray-400_01 border-solid bottom-[0] flex flex-row sm:gap-10 inset-x-[0] items-center justify-between mx-auto p-5 rounded-[15px] w-full">
-                    <Text
-                      className="my-1 text-base text-black-900"
-                      size="txtSFProBold16"
-                    >
-                      Male
-                    </Text>
-                    <Img
-                      className="h-4"
-                      src="images/img_offer.svg"
-                      alt="offer"
-                    />
-                  </div>
-                  <Text
-                    className="absolute left-[3%] text-gray-400_01 text-xl top-[0]"
-                    size="txtSFProMedium20"
-                  >
-                    Gender
-                  </Text>
-                </div>
-                <FloatingInput
-                  wrapClassName="bg-white-A700 border border-gray-200 border-solid flex pb-7 pl-5 pr-[35px] pt-[13px] rounded-[15px] top-[0] w-full"
-                  className="font-medium leading-[normal] p-0 placeholder:bg-white-A700 placeholder:left-5 placeholder:text-gray-400_01 placeholder:top-[0] sm:pr-5 text-gray-400_01 text-left text-xl w-full"
-                  name="password"
-                  labelClasses="bg-white-A700 left-5 top-[0] text-gray-400_01"
-                  focusedClasses="translate-y-[13px] scale-[1]"
-                  wrapperClasses="mt-[30px] w-full top-[0]"
-                  labelText="Password*"
-                  defaultText="Password*"
-                  suffix={
-                    <Img
-                      className="top-[0] my-auto"
-                      src="images/img_call.svg"
-                      alt="call"
-                    />
-                  }
-                ></FloatingInput>
-                <div className="md:h-[100px] h-[83px] mt-[30px] relative w-full">
-                  <div className="absolute bg-white-A700 border border-gray-200 border-solid bottom-[0] flex flex-row sm:gap-10 inset-x-[0] items-center justify-between mx-auto p-5 rounded-[15px] w-full">
-                    <Img
-                      className="h-3"
-                      src="images/img_group2.svg"
-                      alt="groupTwo"
-                    />
-                    <Img
-                      className="h-4 my-[7px] w-4"
-                      src="images/img_call.svg"
-                      alt="call_One"
-                    />
-                  </div>
-                  <Button
-                    className="!text-gray-400_01 absolute cursor-pointer font-medium leading-[normal] left-[2%] min-w-[203px] text-center text-xl top-[0]"
-                    shape="square"
-                    color="white_A700"
-                    size="xs"
-                    variant="fill"
-                  >
-                    Coframe Password*
-                  </Button>
-                </div>
+              <FormControl sx={{ m: 2 }} >
+                  <InputLabel htmlFor="outlined-adornment-Email or Number" color="secondary">Email or Number*</InputLabel>
+                  <OutlinedInput
+                    style={{
+                      borderRadius: '10px',
+                      width: '671px',
+                      height: '70px',
+                      transition: 'border-color 0.3s',
+                    }}
+                    defaultValue="Johndoe@gmail.com"
+                    color="secondary"
+                    focused
+                    aria-describedby="outlined-weight-helper-text"
+                    id="email"
+                    onChange={emailValidation}
+                    value={email}
+                    className={email.length === 0 ? "input-control fill-email" : isEmailCorrect ? "input-control valid-email" : "input-control invalid-email"}
+                    endAdornment={
+                      <InputAdornment position="end">
+                        {isEmailCorrect && (
+                          <IconButton color="secondary">
+                            <TaskAltIcon />
+                          </IconButton>
+                        )}
+                      </InputAdornment>
+                    }
+                    startAdornment={
+                      <InputAdornment position="end">
+                        <IconButton>
+
+                        </IconButton>
+                      </InputAdornment>}
+                    
+                    label="Email or number"
+                    onMouseOver={(e) => {
+                      e.target.style.borderColor = 'red'; // Change the border color on hover
+                    }}
+                    onMouseOut={(e) => {
+                      e.target.style.borderColor = 'initial'; // Reset the border color on mouse out
+                    }}
+                  />
+                </FormControl>
+                <FormControl sx={{ m: 2 }} >
+                  <InputLabel htmlFor="outlined-adornment-Email or Number" color="secondary">Email or Number*</InputLabel>
+                  <OutlinedInput
+                    style={{
+                      borderRadius: '10px',
+                      width: '671px',
+                      height: '70px',
+                      transition: 'border-color 0.3s',
+                    }}
+                    defaultValue="Johndoe@gmail.com"
+                    color="secondary"
+                    focused
+                    aria-describedby="outlined-weight-helper-text"
+                    id="email"
+                    onChange={emailValidation}
+                    value={email}
+                    className={email.length === 0 ? "input-control fill-email" : isEmailCorrect ? "input-control valid-email" : "input-control invalid-email"}
+                    endAdornment={
+                      <InputAdornment position="end">
+                        {isEmailCorrect && (
+                          <IconButton color="secondary">
+                            <TaskAltIcon />
+                          </IconButton>
+                        )}
+                      </InputAdornment>
+                    }
+                    startAdornment={
+                      <InputAdornment position="end">
+                        <IconButton>
+
+                        </IconButton>
+                      </InputAdornment>}
+                    
+                    label="Email or number"
+                    onMouseOver={(e) => {
+                      e.target.style.borderColor = 'red'; // Change the border color on hover
+                    }}
+                    onMouseOut={(e) => {
+                      e.target.style.borderColor = 'initial'; // Reset the border color on mouse out
+                    }}
+                  />
+                </FormControl>
+                <FormControl sx={{ m: 2 }} >
+                  <InputLabel htmlFor="outlined-adornment-Email or Number" color="secondary">Email or Number*</InputLabel>
+                  <OutlinedInput
+                    style={{
+                      borderRadius: '10px',
+                      width: '671px',
+                      height: '70px',
+                      transition: 'border-color 0.3s',
+                    }}
+                    defaultValue="Johndoe@gmail.com"
+                    color="secondary"
+                    focused
+                    aria-describedby="outlined-weight-helper-text"
+                    id="email"
+                    onChange={emailValidation}
+                    value={email}
+                    className={email.length === 0 ? "input-control fill-email" : isEmailCorrect ? "input-control valid-email" : "input-control invalid-email"}
+                    endAdornment={
+                      <InputAdornment position="end">
+                        {isEmailCorrect && (
+                          <IconButton color="secondary">
+                            <TaskAltIcon />
+                          </IconButton>
+                        )}
+                      </InputAdornment>
+                    }
+                    startAdornment={
+                      <InputAdornment position="end">
+                        <IconButton>
+
+                        </IconButton>
+                      </InputAdornment>}
+                    
+                    label="Email or number"
+                    onMouseOver={(e) => {
+                      e.target.style.borderColor = 'red'; // Change the border color on hover
+                    }}
+                    onMouseOut={(e) => {
+                      e.target.style.borderColor = 'initial'; // Reset the border color on mouse out
+                    }}
+                  />
+                </FormControl>
+                <FormControl sx={{ m: 2 }}>
+                  <InputLabel htmlFor="outlined-adornment-password" color="secondary" className="text-[22px]">Password*</InputLabel>
+                  <OutlinedInput
+                    style={{
+                      borderRadius: '10px',
+                      width: '671px',
+                      height: '70px',
+                      transition: 'border-color 0.3s',
+                    }}
+                    defaultValue="169831Tamim+"
+                    color="secondary"
+                    focused
+                    aria-describedby="outlined-weight-helper-text"
+                    id="outlined-adornment-password"
+                    type={showPassword ? 'text' : 'password'}
+                    endAdornment={
+                      <InputAdornment position="end" style={{ padding: "10px" }} >
+                        <IconButton
+                          aria-label="toggle password visibility"
+                          onClick={handleMouseDownPassword}
+                          onMouseDown={handleClickShowPassword}
+                          edge="end"
+                        >
+                          {showPassword ?<Visibility />: <VisibilityOff />} {/* Swap the icons */}
+                        </IconButton>
+                      </InputAdornment>
+                    }
+                    startAdornment={
+                      <InputAdornment position="end">
+                        <IconButton>
+
+                        </IconButton>
+                      </InputAdornment>}
+                    label="Amount a"
+                    onMouseOver={(e) => {
+                      e.target.style.borderColor = 'secondary'; // Change the border color on hover
+                    }}
+                    onMouseOut={(e) => {
+                      e.target.style.borderColor = 'initial'; // Reset the border color on mouse out
+                    }}
+                  />
+                </FormControl>
+                <FormControl sx={{ m: 2 }}>
+                  <InputLabel htmlFor="outlined-adornment-password" color="secondary" className="text-[22px]">Password*</InputLabel>
+                  <OutlinedInput
+                    style={{
+                      borderRadius: '10px',
+                      width: '671px',
+                      height: '70px',
+                      transition: 'border-color 0.3s',
+                    }}
+                    defaultValue="169831Tamim+"
+                    color="secondary"
+                    focused
+                    aria-describedby="outlined-weight-helper-text"
+                    id="outlined-adornment-password"
+                    type={showPassword ? 'text' : 'password'}
+                    endAdornment={
+                      <InputAdornment position="end" style={{ padding: "10px" }} >
+                        <IconButton
+                          aria-label="toggle password visibility"
+                          onClick={handleMouseDownPassword}
+                          onMouseDown={handleClickShowPassword}
+                          edge="end"
+                        >
+                          {showPassword ?<Visibility />: <VisibilityOff />} {/* Swap the icons */}
+                        </IconButton>
+                      </InputAdornment>
+                    }
+                    startAdornment={
+                      <InputAdornment position="end">
+                        <IconButton>
+
+                        </IconButton>
+                      </InputAdornment>}
+                    label="Amount a"
+                    onMouseOver={(e) => {
+                      e.target.style.borderColor = 'secondary'; // Change the border color on hover
+                    }}
+                    onMouseOut={(e) => {
+                      e.target.style.borderColor = 'initial'; // Reset the border color on mouse out
+                    }}
+                  />
+                </FormControl> 
+                
+               
                 <div className="flex sm:flex-col flex-row gap-2.5 items-start justify-start mt-5 w-[86%] md:w-full">
                   <div className="bg-white-A700 border-2 border-gray-200 border-solid h-[26px] mb-[3px] rounded-[5px] w-[26px]"></div>
                   <Text

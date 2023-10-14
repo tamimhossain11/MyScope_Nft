@@ -1,8 +1,63 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate from React Router
+import { Button, Img, Text } from "components";
+import ReactCodeInput from "react-code-input";
 
-import { Button, Img, Line, List, Text } from "components";
+
+const CORRECT_PIN_CODE = "4089";
 
 const VerificationCordpagePage = () => {
+  const navigate = useNavigate();
+  const [isPinCodeValid, setIsPinCodeValid] = useState(true);
+  const [pinCode, setPinCode] = useState("");
+  const [btnIsPressed, setBtnIsPressed] = useState(false);
+
+  const checkPinCode = () => {
+    const isPinCodeValid = pinCode === CORRECT_PIN_CODE;
+
+    setBtnIsPressed(true);
+    setIsPinCodeValid(isPinCodeValid);
+    if (!isPinCodeValid) setPinCode("");
+    else {
+      navigate("/loginpage1");
+    }
+  };
+
+  const handlePinChange = (pin) => {
+    setPinCode(pin); // Corrected from the previous issue
+    setBtnIsPressed(false);
+  };
+
+
+  const props = { 
+    inputStyle: { 
+      fontFamily: 'sfpro', 
+      margin:  '10px', 
+      MozAppearance: 'textfield', 
+      width: '145px', 
+      fontSize: '32px',  
+      backgroundColor: 'white', 
+      color: '#05011D', 
+      border: 'none',
+      borderBottom: '2px solid black',
+      textAlign: 'center',
+      fontWeight: "590",
+
+    }, 
+    inputStyleInvalid: { 
+      fontFamily: 'sfpro', 
+      margin:  '10px', 
+      MozAppearance: 'textfield', 
+      width: '145px', 
+      fontSize: '32px',  
+      backgroundColor: 'white', 
+      color: 'red', 
+      border: 'none',
+      borderBottom: '2px solid red',
+      textAlign: 'center',
+      fontWeight: "590",
+    } 
+  }
   return (
     <>
       <div className="bg-black-900 flex flex-col font-sfpro items-center justify-start mx-auto p-[60px] md:px-10 sm:px-5 w-full">
@@ -39,57 +94,27 @@ const VerificationCordpagePage = () => {
                   Check The Email & Enter The Code
                 </Text>
               </div>
-              <div className="flex flex-col gap-12 items-center justify-start w-full">
-                <List
-                  className="sm:flex-col flex-row gap-[30px] grid sm:grid-cols-1 md:grid-cols-2 grid-cols-4 justify-start w-auto md:w-full"
-                  orientation="horizontal"
-                >
-                  <div className="flex flex-col items-center justify-start w-full">
-                    <Text
-                      className="md:text-3xl sm:text-[28px] text-[32px] text-black-900 text-center"
-                      size="txtSFProSemibold32"
-                    >
-                      4
-                    </Text>
-                    <Line className="bg-black-900_01 h-px mt-1 w-full" />
-                  </div>
-                  <div className="flex flex-col items-center justify-start w-full">
-                    <Text
-                      className="md:text-3xl sm:text-[28px] text-[32px] text-black-900 text-center"
-                      size="txtSFProSemibold32"
-                    >
-                      0
-                    </Text>
-                    <Line className="bg-black-900_01 h-px mt-1 w-full" />
-                  </div>
-                  <div className="flex flex-col items-center justify-start w-full">
-                    <Text
-                      className="md:text-3xl sm:text-[28px] text-[32px] text-black-900 text-center"
-                      size="txtSFProSemibold32"
-                    >
-                      8
-                    </Text>
-                    <Line className="bg-black-900_01 h-px mt-1 w-full" />
-                  </div>
-                  <div className="flex flex-col items-center justify-start w-full">
-                    <Text
-                      className="md:text-3xl sm:text-[28px] text-[32px] text-black-900 text-center"
-                      size="txtSFProSemibold32"
-                    >
-                      9
-                    </Text>
-                    <Line className="bg-black-900_01 h-px mt-1 w-full" />
-                  </div>
-                </List>
+              <div className="w-[671px]">
+                <ReactCodeInput
+                  id="pinCode"
+                  type="text"
+                  isValid={isPinCodeValid}
+                  fields={4}
+                  onChange={handlePinChange}
+                  value={pinCode}
+                  {...props}
+                />
+                </div>
                 <Button
                   className="cursor-pointer font-bold min-w-[671px] md:min-w-full rounded-[15px] sm:text-2xl md:text-[26px] text-[28px] text-center"
                   color="deep_purple_A200"
                   size="lg"
                   variant="fill"
+                  onClick={checkPinCode}
                 >
                   Verify
                 </Button>
-              </div>
+              
             </div>
           </div>
         </div>
