@@ -19,7 +19,7 @@ const VerificationCordpagePage = () => {
     setIsPinCodeValid(isPinCodeValid);
     if (!isPinCodeValid) setPinCode("");
     else {
-      navigate("/loginpage1");
+      navigate("/newpasswordpage");
     }
   };
 

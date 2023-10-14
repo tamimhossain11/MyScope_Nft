@@ -20,7 +20,7 @@ const Home = () => {
           <Link to="/verificationcordpage">VerificationCordpage</Link>
         </li>
         <li>
-          <Link to="/nwepasswordpage">NwePasswordpage</Link>
+          <Link to="/newpasswordpage">NewPasswordpage</Link>
         </li>
         <li>
           <Link to="/fashionavatarpage">FashionAvatarpage</Link>
@@ -37,9 +37,10 @@ const Home = () => {
         <li>
           <Link to="/livechatpage">Livechatpage</Link>
         </li>
-       {/*  <li>
+        <li>
           <Link to="/page">Page</Link>
         </li>
+       {/*  
         <li>
           <Link to="/itamedetailspage">ItameDetailspage</Link>
         </li>
@@ -137,6 +138,9 @@ const Home = () => {
           <Link to="/blogpage">BlogPage</Link>
         </li>
         <li>
+          <Link to="/rankingspageone">RankingsPageOne</Link>
+        </li>
+        <li>
           <Link to="/createpage">Createpage</Link>
         </li>*/}
         <li>
@@ -144,10 +148,7 @@ const Home = () => {
         </li>
         <li>
           <Link to="/termsofservicepage">Termsofservicepage</Link>
-        </li>
-        <li>
-          <Link to="/rankingspageone">RankingsPageOne</Link>
-        </li>
+        </li> 
       </ul>
     </div>
   );

@@ -46,7 +46,7 @@ const Navbar = ({ onIconClick }) => {
     return (
         <>
 
-            <div className="flex md:flex-col flex-row md:gap-10 gap-[66px] items-center justify-end w-[77%] md:w-full">
+            <div className="flex md:flex-col flex-row md:gap-10 gap-[66px] items-center justify-end w-[77%] md:w-full z-[1]">
                 <div className="flex md:flex-col flex-row md:gap-5 items-center justify-start w-[82%] md:w-full">
                     <Img
                         className="h-[85px] sm:h-auto object-cover w-[9%] md:w-full"

@@ -1,116 +1,18 @@
 import React from "react";
 
-import { Button, Img, Input, Line, Radio, Text } from "components";
+import { Button, Img,  Line, Radio, Text } from "components";
+import Navbar from "components/Navbar";
 
-import { CloseSVG } from "../../assets/images";
 
 const Page = () => {
-  const [group1000010222value, setGroup1000010222value] = React.useState("");
+
 
   return (
     <>
       <div className="bg-black-900 flex flex-col font-sfpro items-center justify-start mx-auto p-10 sm:px-5 w-full">
         <div className="flex flex-col md:gap-10 gap-[117px] items-center justify-start max-w-[1530px] mb-[81px] mx-auto md:px-5 w-full">
-          <div className="flex md:flex-col flex-row md:gap-5 items-center justify-start w-full">
-            <Img
-              className="md:flex-1 h-[85px] sm:h-auto object-cover w-[8%] md:w-full"
-              src="images/img_myscpelogo1.png"
-              alt="myscpelogoOne"
-            />
-            <Input
-              name="group1000010222"
-              placeholder="Search"
-              value={group1000010222value}
-              onChange={(e) => setGroup1000010222value(e)}
-              className="!placeholder:text-white-A700 !text-white-A700 p-0 text-left text-lg w-full"
-              wrapClassName="flex md:flex-1 md:ml-[0] ml-[49px] md:mt-0 my-3 w-[21%] md:w-full"
-              prefix={
-                <Img
-                  className="cursor-pointer mr-[5px] my-auto"
-                  src="images/img_search.svg"
-                  alt="search"
-                />
-              }
-              suffix={
-                <CloseSVG
-                  fillColor="#ffffff"
-                  className="cursor-pointer my-auto"
-                  onClick={() => setGroup1000010222value("")}
-                  style={{
-                    visibility:
-                      group1000010222value?.length <= 0 ? "hidden" : "visible",
-                  }}
-                  height={29}
-                  width={30}
-                  viewBox="0 0 30 29"
-                />
-              }
-              shape="round"
-            ></Input>
-            <div className="flex md:flex-1 md:flex-col flex-row gap-[45px] items-start justify-start md:ml-[0] ml-[100px] w-auto md:w-full">
-              <Text
-                className="text-white-A700 text-xl w-auto"
-                size="txtSFProRegular20"
-              >
-                Home
-              </Text>
-              <Text
-                className="text-white-A700 text-xl w-auto"
-                size="txtSFProRegular20"
-              >
-                Pages
-              </Text>
-              <Text
-                className="text-white-A700 text-xl w-auto"
-                size="txtSFProRegular20"
-              >
-                Explore
-              </Text>
-              <Text
-                className="text-white-A700 text-xl w-auto"
-                size="txtSFProRegular20"
-              >
-                Resources
-              </Text>
-              <Text
-                className="text-white-A700 text-xl w-auto"
-                size="txtSFProRegular20"
-              >
-                Create
-              </Text>
-              <Text
-                className="text-white-A700 text-xl w-auto"
-                size="txtSFProRegular20"
-              >
-                NFT GAme
-              </Text>
-            </div>
-            <div className="flex md:flex-1 flex-row gap-5 items-center justify-between md:ml-[0] ml-[68px] w-[15%] md:w-full">
-              <Button
-                className="flex h-[60px] items-center justify-center rounded-[50%] w-[60px]"
-                color="white_A700_19"
-                size="md"
-                variant="fill"
-              >
-                <Img
-                  className="h-[35px]"
-                  src="images/img_materialsymbol_white_a700_1.svg"
-                  alt="materialsymbol"
-                />
-              </Button>
-              <div className="flex flex-col items-center justify-start w-[60px]">
-                <Img
-                  className="h-[59px] md:h-auto rounded-[50%] w-[60px]"
-                  src="images/img_ellipse141.png"
-                  alt="ellipse141"
-                />
-              </div>
-              <Img
-                className="h-[59px] w-[60px]"
-                src="images/img_group1000009458_2.svg"
-                alt="group1000009458"
-              />
-            </div>
+          <div className=" ml-[340px]  w-[1920px]">
+          <Navbar/>
           </div>
           <div className="flex flex-col items-center justify-start w-2/5 md:w-full">
             <div className="flex flex-col gap-3 items-center justify-start w-[48%] md:w-full">

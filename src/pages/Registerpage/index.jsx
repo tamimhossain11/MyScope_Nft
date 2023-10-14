@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { useGoogleLogin } from "@react-oauth/google";
-import { Button, Img, Line, Text } from "components";
+import { Button, Img, Text } from "components";
 import IconButton from '@mui/material/IconButton';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import InputLabel from '@mui/material/InputLabel';
@@ -9,7 +8,7 @@ import TaskAltIcon from '@mui/icons-material/TaskAlt';
 import FormControl from '@mui/material/FormControl';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import { Link } from "react-router-dom";
+
 
 const RegisterpagePage = () => {
   const [email, setEmail] = useState("");
@@ -32,12 +31,6 @@ const RegisterpagePage = () => {
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
-  const googleSignIn = useGoogleLogin({
-    onSuccess: (res) => {
-      console.log("res", res);
-      alert("Login successful. 😍");
-    },
-  });
   return (
     <>
       <div className="bg-black-900 flex flex-col font-sfpro items-center justify-start mx-auto p-[60px] md:px-10 sm:px-5 w-full">
@@ -295,7 +288,7 @@ const RegisterpagePage = () => {
                       I agree to the{" "}
                     </span>
                     <a
-                      href="javascript:"
+                      href="/termsofservicepage"
                       className="text-deep_purple-A200 font-sfpro text-left font-bold underline"
                     >
                       Terms & Conditions
@@ -307,20 +300,11 @@ const RegisterpagePage = () => {
                       and{" "}
                     </span>
                     <a
-                      href="javascript:"
+                      href=""
                       className="text-deep_purple-A200 font-sfpro text-left font-bold underline"
                     >
-                      Privacy Policy
+                      Privacy Policy.
                     </a>
-                    <a
-                      href="javascript:"
-                      className="text-black-900 font-sfpro text-left font-normal underline"
-                    >
-                      .
-                    </a>
-                    <span className="text-black-900 font-sfpro text-left font-normal">
-                      {" "}
-                    </span>
                   </Text>
                 </div>
                 <Button
