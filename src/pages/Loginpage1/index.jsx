@@ -9,10 +9,11 @@ import TaskAltIcon from '@mui/icons-material/TaskAlt';
 import FormControl from '@mui/material/FormControl';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 const Loginpage1Page = () => {
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [isEmailCorrect, setIsEmailCorrect] = useState(false);
 
   const emailValidation = (e) => {
@@ -24,6 +25,25 @@ const Loginpage1Page = () => {
       setIsEmailCorrect(true);
     } else {
       setIsEmailCorrect(false);
+    }
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const navigate = useNavigate(); // Initialize the navigate function
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Check if the email and password match the hardcoded values
+    if (email === "amdtamim3@gmail.com" && password === "169831Tamim+") {
+      // Redirect to the home page for a valid user
+      navigate("/homepage");
+    } else {
+      // Handle the case of an invalid email or password here
+      alert("Invalid email or password");
     }
   };
 
@@ -76,122 +96,113 @@ const Loginpage1Page = () => {
                 </Text>
               </div>
               <div className="flex flex-col items-center justify-start w-full">
-              <FormControl sx={{ m: 2 }} >
-                  <InputLabel htmlFor="outlined-adornment-Email or Number" color="secondary">Email or Number*</InputLabel>
-                  <OutlinedInput
-                    style={{
-                      borderRadius: '10px',
-                      width: '671px',
-                      height: '70px',
-                      transition: 'border-color 0.3s',
-                    }}
-                    defaultValue="Johndoe@gmail.com"
-                    color="secondary"
-                    focused
-                    aria-describedby="outlined-weight-helper-text"
-                    id="email"
-                    onChange={emailValidation}
-                    value={email}
-                    className={email.length === 0 ? "input-control fill-email" : isEmailCorrect ? "input-control valid-email" : "input-control invalid-email"}
-                    endAdornment={
-                      <InputAdornment position="end">
-                        {isEmailCorrect && (
-                          <IconButton color="secondary">
-                            <TaskAltIcon />
+
+                <form onSubmit={handleSubmit}>
+                  <FormControl sx={{ m: 2 }} >
+                    <InputLabel htmlFor="outlined-adornment-Email or Number" color="secondary">Email or Number*</InputLabel>
+                    <OutlinedInput
+                      style={{
+                        borderRadius: '10px',
+                        width: '671px',
+                        height: '70px',
+                        transition: 'border-color 0.3s',
+                      }}
+                      color="secondary"
+                      focused
+                      aria-describedby="outlined-weight-helper-text"
+                      id="email"
+                      type="email"
+                      onChange={emailValidation}
+                      value={email}
+                      className={email.length === 0 ? "input-control fill-email" : isEmailCorrect ? "input-control valid-email" : "input-control invalid-email"}
+                      endAdornment={
+                        <InputAdornment position="end">
+                          {isEmailCorrect && (
+                            <IconButton color="secondary">
+                              <TaskAltIcon />
+                            </IconButton>
+                          )}
+                        </InputAdornment>
+                      }
+
+                      label="Email or number"
+                      onMouseOver={(e) => {
+                        e.target.style.borderColor = 'red'; // Change the border color on hover
+                      }}
+                      onMouseOut={(e) => {
+                        e.target.style.borderColor = 'initial'; // Reset the border color on mouse out
+                      }}
+                    />
+                  </FormControl>
+
+
+                  <FormControl sx={{ m: 2 }}>
+                    <InputLabel htmlFor="outlined-adornment-password" color="secondary" className="text-[22px]">Password*</InputLabel>
+                    <OutlinedInput
+                      style={{
+                        borderRadius: '10px',
+                        width: '671px',
+                        height: '70px',
+                        transition: 'border-color 0.3s',
+                      }}
+                      defaultValue="169831Tamim+"
+                      color="secondary"
+                      focused
+                      aria-describedby="outlined-weight-helper-text"
+                      id="outlined-adornment-password"
+                      type={showPassword ? 'text' : 'password'}
+                      endAdornment={
+                        <InputAdornment position="end" style={{ padding: "10px" }} >
+                          <IconButton
+                            aria-label="toggle password visibility"
+                            onClick={handleMouseDownPassword}
+                            onMouseDown={handleClickShowPassword}
+                            edge="end"
+                          >
+                            {showPassword ? <Visibility /> : <VisibilityOff />} {/* Swap the icons */}
                           </IconButton>
-                        )}
-                      </InputAdornment>
-                    }
-                    startAdornment={
-                      <InputAdornment position="end">
-                        <IconButton>
-
-                        </IconButton>
-                      </InputAdornment>}
-                    
-                    label="Email or number"
-                    onMouseOver={(e) => {
-                      e.target.style.borderColor = 'red'; // Change the border color on hover
-                    }}
-                    onMouseOut={(e) => {
-                      e.target.style.borderColor = 'initial'; // Reset the border color on mouse out
-                    }}
-                  />
-                </FormControl>
-
-
-                <FormControl sx={{ m: 2 }}>
-                  <InputLabel htmlFor="outlined-adornment-password" color="secondary" className="text-[22px]">Password*</InputLabel>
-                  <OutlinedInput
-                    style={{
-                      borderRadius: '10px',
-                      width: '671px',
-                      height: '70px',
-                      transition: 'border-color 0.3s',
-                    }}
-                    defaultValue="169831Tamim+"
-                    color="secondary"
-                    focused
-                    aria-describedby="outlined-weight-helper-text"
-                    id="outlined-adornment-password"
-                    type={showPassword ? 'text' : 'password'}
-                    endAdornment={
-                      <InputAdornment position="end" style={{ padding: "10px" }} >
-                        <IconButton
-                          aria-label="toggle password visibility"
-                          onClick={handleMouseDownPassword}
-                          onMouseDown={handleClickShowPassword}
-                          edge="end"
-                        >
-                          {showPassword ?<Visibility />: <VisibilityOff />} {/* Swap the icons */}
-                        </IconButton>
-                      </InputAdornment>
-                    }
-                    startAdornment={
-                      <InputAdornment position="end">
-                        <IconButton>
-
-                        </IconButton>
-                      </InputAdornment>}
-                    label="Amount a"
-                    onMouseOver={(e) => {
-                      e.target.style.borderColor = 'secondary'; // Change the border color on hover
-                    }}
-                    onMouseOut={(e) => {
-                      e.target.style.borderColor = 'initial'; // Reset the border color on mouse out
-                    }}
-                  />
-                </FormControl>
-                <div className="flex flex-row sm:gap-10 items-start justify-between mt-[19px] w-full">
-                  <div className="flex flex-row gap-2.5 items-center justify-start mb-0.5">
-                    <div className="bg-white-A700 border-2 border-gray-200 border-solid h-[26px] rounded-[5px] w-[26px]"></div>
-                    <Text
-                      className="text-[22px] text-black-900 sm:text-lg md:text-xl"
-                      size="txtSFProRegular22"
+                        </InputAdornment>
+                      }
+                      
+                      label="Amount a"
+                      onMouseOver={(e) => {
+                        e.target.style.borderColor = 'secondary'; // Change the border color on hover
+                      }}
+                      onMouseOut={(e) => {
+                        e.target.style.borderColor = 'initial'; // Reset the border color on mouse out
+                      }}
+                    />
+                  </FormControl>
+                  <div className="flex flex-row sm:gap-10 items-start justify-between mt-[19px] w-full">
+                    <div className="flex flex-row gap-2.5 items-center justify-start mb-0.5">
+                      <div className="bg-white-A700 border-2 border-gray-200 border-solid h-[26px] rounded-[5px] w-[26px]"></div>
+                      <Text
+                        className="text-[22px] text-black-900 sm:text-lg md:text-xl"
+                        size="txtSFProRegular22"
+                      >
+                        Remember me
+                      </Text>
+                    </div>
+                    <a
+                      href="/forgetpasswordpage"
+                      className="mt-0.5 text-[22px] text-deep_purple-A200 sm:text-lg md:text-xl underline"
                     >
-                      Remember me
-                    </Text>
+                      <Text size="txtSFProMedium22">Forgot password?</Text>
+                    </a>
                   </div>
-                  <a
-                    href="/forgetpasswordpage"
-                    className="mt-0.5 text-[22px] text-deep_purple-A200 sm:text-lg md:text-xl underline"
-                  >
-                    <Text size="txtSFProMedium22">Forgot password?</Text>
-                  </a>
-                </div>
-                <Link to="/homepage">
-                <Button
-                  className="cursor-pointer font-bold min-w-[671px] md:min-w-full mt-[46px] rounded-[15px] sm:text-2xl md:text-[26px] text-[28px] text-center"
-                  color="deep_purple_A200"
-                  size="lg"
-                  variant="fill"
-                >
-                  Log In
-                </Button>
-                </Link>
+                    <Button
+                      type="submit" // This button triggers the form submission
+                      className="cursor-pointer font-bold min-w-[671px] md:min-w-full mt-[46px] rounded-[15px] sm:text-2xl md:text-[26px] text-[28px] text-center"
+                      color="deep_purple_A200"
+                      size="lg"
+                      variant="fill"
+                    >
+                      Log In
+                    </Button>
+                </form>
                 <div className="flex flex-row items-start justify-center mt-[29px] w-[48%] md:w-full">
                   <div
-                    
+
                     className="mb-0.5 text-[22px] text-black-900 sm:text-lg text-right md:text-xl"
                   >
                     <Text size="txtSFProRegular22">Don’t have an account?</Text>
@@ -262,7 +273,7 @@ const Loginpage1Page = () => {
               className="cursor-pointer flex items-center justify-center min-w-[671px] md:min-w-full mt-5 rounded-[15px]"
               leftIcon={
                 <Img
-                  className="h-[30px] mb-1 mr-[15px]"
+                  className="h-10 mb-1 w-[30px] mr-[15px]"
                   src="images/img_lock.svg"
                   alt="lock"
                 />

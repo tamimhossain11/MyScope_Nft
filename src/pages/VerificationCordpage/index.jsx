@@ -32,23 +32,22 @@ const VerificationCordpagePage = () => {
   const props = { 
     inputStyle: { 
       fontFamily: 'sfpro', 
-      margin:  '10px', 
-      MozAppearance: 'textfield', 
-      width: '145px', 
+      width: '22%', 
       fontSize: '32px',  
       backgroundColor: 'white', 
       color: '#05011D', 
       border: 'none',
-      borderBottom: '2px solid black',
+      borderBottom: '2.5px solid black',
       textAlign: 'center',
       fontWeight: "590",
-
+      marginLeft:'2.5%'
+     
     }, 
     inputStyleInvalid: { 
       fontFamily: 'sfpro', 
       margin:  '10px', 
       MozAppearance: 'textfield', 
-      width: '145px', 
+      width: '20%px', 
       fontSize: '32px',  
       backgroundColor: 'white', 
       color: 'red', 
@@ -70,11 +69,12 @@ const VerificationCordpagePage = () => {
                   src="images/img_rectangle66495.png"
                   alt="rectangle66495"
                 />
-                <div className="absolute bg-black-900_19 flex flex-col h-full inset-[0] items-center justify-center m-auto p-[215px] md:px-10 sm:px-5 rounded-[30px] w-full">
+                <div className="absolute bg-black-900_19 flex flex-col h-full inset-[0] items-center justify-center md:px-10 sm:px-5 rounded-[30px]">
                   <Img
-                    className="h-[357px] md:h-auto my-[86px] object-cover w-full"
+                    className="h-[357px] md:h-auto my-[86px] object-cover"
                     src="images/img_myscpelogo1.png"
                     alt="myscpelogoOne"
+
                   />
                 </div>
               </div>
@@ -94,7 +94,7 @@ const VerificationCordpagePage = () => {
                   Check The Email & Enter The Code
                 </Text>
               </div>
-              <div className="w-[671px]">
+              <div className="min:w-[700px]  w-full">
                 <ReactCodeInput
                   id="pinCode"
                   type="text"
@@ -102,11 +102,12 @@ const VerificationCordpagePage = () => {
                   fields={4}
                   onChange={handlePinChange}
                   value={pinCode}
-                  {...props}
+                  inputStyle={props.inputStyle}
                 />
+          
                 </div>
                 <Button
-                  className="cursor-pointer font-bold min-w-[671px] md:min-w-full rounded-[15px] sm:text-2xl md:text-[26px] text-[28px] text-center"
+                  className="cursor-pointer font-bold min:w-[671px] w-full md:mb-5 rounded-[15px] sm:text-2xl md:text-[24px] text-[28px] text-center"
                   color="deep_purple_A200"
                   size="lg"
                   variant="fill"
