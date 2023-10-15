@@ -9,7 +9,7 @@ import TaskAltIcon from '@mui/icons-material/TaskAlt';
 import FormControl from '@mui/material/FormControl';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { useNavigate } from "react-router-dom"; 
 
 const Loginpage1Page = () => {
   const [email, setEmail] = useState("");
@@ -32,21 +32,23 @@ const Loginpage1Page = () => {
     setPassword(e.target.value);
   };
 
-  const navigate = useNavigate(); // Initialize the navigate function
+  const navigate = useNavigate(); 
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Check if the email and password match the hardcoded values
-    if (email === "amdtamim3@gmail.com" && password === "169831Tamim+") {
-      // Redirect to the home page for a valid user
+    const trimmedEmail = email.trim();
+    const trimmedPassword = password.trim();
+
+    console.log("Email:", trimmedEmail);
+    console.log("Password:", trimmedPassword);
+
+    if (trimmedEmail === "amdtamim3@gmail.com" && trimmedPassword === "169831Tamim+") {
       navigate("/homepage");
     } else {
-      // Handle the case of an invalid email or password here
       alert("Invalid email or password");
     }
   };
-
   const [showPassword, setShowPassword] = React.useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   const handleMouseDownPassword = (event) => {
@@ -62,26 +64,31 @@ const Loginpage1Page = () => {
   return (
     <>
       <div className="bg-black-900 flex flex-col font-sfpro items-center justify-start mx-auto p-[60px] md:px-10 sm:px-5 w-full">
-        <div className="bg-white-A700 flex md:flex-col flex-row md:gap-10 gap-[123px] items-start justify-start max-w-[1800px] mb-[25px] mx-auto pb-[70px] pr-[70px] md:px-5 rounded-[30px] w-full">
+        <div className="custom-scrollbar bg-white-A700 flex md:flex-col flex-row md:gap-10 gap-[123px] items-start justify-start max-w-[1800px] mb-[25px] mx-auto pb-[70px] pr-[70px] md:px-5 rounded-[30px] w-full">
           <div className="flex md:flex-1 flex-col items-center justify-start w-[51%] md:w-full">
-            <div className="h-[960px] relative w-full">
-              <Img
-                className="h-[960px] m-auto object-cover rounded-[30px] w-full"
+            <div className="min:h-[960px] h-full  relative w-full">
+              <Img 
+                className="min:h-[960px] h-full sm:h-[460px] m-auto object-cover rounded-[30px] w-full"
                 src="images/img_rectangle66495.png"
                 alt="rectangle66495"
               />
-              <div className="absolute bg-black-900_19 flex flex-col h-full inset-[0] items-center justify-center m-auto p-[215px] md:px-10 sm:px-5 rounded-[30px] w-full">
+              <div className=" absolute bg-black-900_19 flex flex-col h-full inset-[0] items-center justify-center md:px-40 sm:px-5 rounded-[30px]">
                 <Img
-                  className="h-[357px] md:h-auto my-[86px] object-cover w-full"
+                  className=" h-[357px] md:h-auto my-[86px] object-cover"
                   src="images/img_myscpelogo1.png"
                   alt="myscpelogoOne"
+
                 />
               </div>
             </div>
           </div>
-          <div className="flex md:flex-1 flex-col items-center justify-start md:mt-0 mt-[58px] w-[39%] md:w-full">
+           {/*Scroller effect and responsiveness should implemented from here  */}
+           
+           <div className=" flex md:flex-1 flex-col items-center justify-start md:mt-0 mt-[58px] w-[49%] md:w-full">
+           
             <div className="flex flex-col gap-[55px] items-center justify-start w-full">
               <div className="flex flex-col gap-3 items-center justify-start">
+              
                 <Text
                   className="sfprotext-regular sm:text-4xl md:text-[38px] text-[40px] text-black-900 text-center"
                   size="txtSFProBold40"
@@ -99,13 +106,27 @@ const Loginpage1Page = () => {
 
                 <form onSubmit={handleSubmit}>
                   <FormControl sx={{ m: 2 }} >
-                    <InputLabel htmlFor="outlined-adornment-Email or Number" color="secondary">Email or Number*</InputLabel>
+                    <InputLabel
+                     htmlFor="outlined-adornment-Email or Number" 
+                     color="secondary"
+                      shrink={true}
+                      sx={{
+                      backgroundColor: 'white',
+                      fontSize: '24px', 
+                      marginLeft:'5px'
+                    }}
+                    >
+                      Email or Number*</InputLabel>
                     <OutlinedInput
                       style={{
-                        borderRadius: '10px',
+                        borderRadius: '15px',
                         width: '671px',
                         height: '70px',
                         transition: 'border-color 0.3s',
+                      }}
+                      sx={{
+                        paddingLeft: '10px',  
+                        fontSize:'20px',
                       }}
                       color="secondary"
                       focused
@@ -124,55 +145,56 @@ const Loginpage1Page = () => {
                           )}
                         </InputAdornment>
                       }
-
-                      label="Email or number"
-                      onMouseOver={(e) => {
-                        e.target.style.borderColor = 'red'; // Change the border color on hover
-                      }}
-                      onMouseOut={(e) => {
-                        e.target.style.borderColor = 'initial'; // Reset the border color on mouse out
-                      }}
                     />
                   </FormControl>
 
 
                   <FormControl sx={{ m: 2 }}>
-                    <InputLabel htmlFor="outlined-adornment-password" color="secondary" className="text-[22px]">Password*</InputLabel>
+                    <InputLabel
+                      htmlFor="outlined-adornment-password"
+                      color="secondary"
+                      shrink={true}
+                      sx={{
+                      backgroundColor: 'white',
+                      fontSize: '24px' ,
+                      marginLeft:'5px'
+                    }}
+                    >
+                      Password* 
+                    </InputLabel>
                     <OutlinedInput
                       style={{
-                        borderRadius: '10px',
+                        borderRadius: '15px',
                         width: '671px',
                         height: '70px',
                         transition: 'border-color 0.3s',
                       }}
-                      defaultValue="169831Tamim+"
+                      sx={{
+                        paddingLeft: '10px',  
+                        fontSize:'20px',
+                      }}
                       color="secondary"
                       focused
                       aria-describedby="outlined-weight-helper-text"
                       id="outlined-adornment-password"
                       type={showPassword ? 'text' : 'password'}
+                      onChange={handlePasswordChange}
+                      value={password}
                       endAdornment={
-                        <InputAdornment position="end" style={{ padding: "10px" }} >
+                        <InputAdornment position="end" style={{ padding: "10px" }}>
                           <IconButton
                             aria-label="toggle password visibility"
-                            onClick={handleMouseDownPassword}
-                            onMouseDown={handleClickShowPassword}
+                            onClick={handleClickShowPassword}
+                            onMouseDown={handleMouseDownPassword}
                             edge="end"
                           >
-                            {showPassword ? <Visibility /> : <VisibilityOff />} {/* Swap the icons */}
+                            {showPassword ? <Visibility /> : <VisibilityOff />}
                           </IconButton>
                         </InputAdornment>
                       }
-                      
-                      label="Amount a"
-                      onMouseOver={(e) => {
-                        e.target.style.borderColor = 'secondary'; // Change the border color on hover
-                      }}
-                      onMouseOut={(e) => {
-                        e.target.style.borderColor = 'initial'; // Reset the border color on mouse out
-                      }}
                     />
                   </FormControl>
+
                   <div className="flex flex-row sm:gap-10 items-start justify-between mt-[19px] w-full">
                     <div className="flex flex-row gap-2.5 items-center justify-start mb-0.5">
                       <div className="bg-white-A700 border-2 border-gray-200 border-solid h-[26px] rounded-[5px] w-[26px]"></div>
@@ -190,15 +212,15 @@ const Loginpage1Page = () => {
                       <Text size="txtSFProMedium22">Forgot password?</Text>
                     </a>
                   </div>
-                    <Button
-                      type="submit" // This button triggers the form submission
-                      className="cursor-pointer font-bold min-w-[671px] md:min-w-full mt-[46px] rounded-[15px] sm:text-2xl md:text-[26px] text-[28px] text-center"
-                      color="deep_purple_A200"
-                      size="lg"
-                      variant="fill"
-                    >
-                      Log In
-                    </Button>
+                  <Button
+                    type="submit"
+                    className="cursor-pointer font-bold w-full min:w-[671px] mt-[46px] rounded-[15px] sm:text-2xl md:text-[26px] text-[28px] text-center"
+                    color="deep_purple_A200"
+                    size="lg"
+                    variant="fill"
+                  >
+                    Log In
+                  </Button>
                 </form>
                 <div className="flex flex-row items-start justify-center mt-[29px] w-[48%] md:w-full">
                   <div
@@ -273,7 +295,7 @@ const Loginpage1Page = () => {
               className="cursor-pointer flex items-center justify-center min-w-[671px] md:min-w-full mt-5 rounded-[15px]"
               leftIcon={
                 <Img
-                  className="h-10 mb-1 w-[30px] mr-[15px]"
+                  className="h-7 mt-0.5 mb-[3px] mr-[15px]"
                   src="images/img_lock.svg"
                   alt="lock"
                 />
@@ -303,135 +325,116 @@ const Loginpage1Page = () => {
                 Metamask
               </div>
             </Button>
-            <div
-              className="bg-cover bg-no-repeat flex flex-col h-[70px] items-center justify-start mt-5 p-[15px] w-full"
-              style={{ backgroundImage: "url('images/img_group2629.svg')" }}
-            >
-              <div className="flex flex-row gap-[15px] items-center justify-center w-[41%] md:w-full">
+            <Button
+              className="cursor-pointer flex items-center justify-center min-w-[671px] md:min-w-full mt-5 rounded-[15px]"
+              leftIcon={
                 <Img
                   className="h-10 w-10"
                   src="images/img_instagram.svg"
                   alt="instagram"
                 />
-                <div className="flex flex-col items-center justify-start">
-                  <Text
-                    className="sm:text-2xl md:text-[26px] text-[28px] text-white-A700"
-                    size="txtSFProBold28"
-                  >
-                    Coinbase Wallet
-                  </Text>
-                </div>
-              </div>
-            </div>
-            <div
-              className="bg-cover bg-no-repeat flex flex-col h-[70px] items-center justify-start mt-5 p-[17px] w-full"
-              style={{ backgroundImage: "url('images/img_group2630.svg')" }}
+              }
+              color="blue_A200"
+              size="lg"
+              variant="fill"
             >
-              <div className="flex flex-row gap-[15px] items-end justify-center w-[39%] md:w-full">
-                <Img
-                  className="h-6 mt-[7px]"
-                  src="images/img_reply.svg"
-                  alt="reply"
-                />
-                <div className="flex flex-col items-center justify-start">
-                  <Text
-                    className="sm:text-2xl md:text-[26px] text-[28px] text-white-A700"
-                    size="txtSFProBold28"
-                  >
-                    WalletConnect
-                  </Text>
-                </div>
+              <div className="font-bold md:text-[26px] sm:text-2xl text-[28px] text-left">
+                Coinbase Wallet
               </div>
-            </div>
-            <div
-              className="bg-cover bg-no-repeat flex flex-col h-[70px] items-center justify-end mt-5 p-[15px] w-full"
-              style={{ backgroundImage: "url('images/img_group2631.svg')" }}
+            </Button>
+            <Button
+              className="cursor-pointer flex items-center justify-center min-w-[671px] md:min-w-full mt-5 rounded-[15px]"
+              leftIcon={<Img
+                className="h-6 mt-[7px]"
+                src="images/img_reply.svg"
+                alt="reply"
+              />
+              }
+              color="blue_A200"
+              size="lg"
+              variant="fill"
             >
-              <div className="flex flex-row gap-[15px] items-start justify-center mt-0.5 w-[23%] md:w-full">
+              <div className="font-bold md:text-[26px] sm:text-2xl text-[28px] text-left">
+                WalletConnect
+
+              </div>
+            </Button>
+
+            <Button
+              className="cursor-pointer flex items-center justify-center min-w-[671px] md:min-w-full mt-5 rounded-[15px]"
+              leftIcon={
                 <Img
                   className="h-[34px]"
                   src="images/img_computer.svg"
                   alt="computer"
                 />
-                <div className="flex flex-col items-center justify-start mt-0.5">
-                  <Text
-                    className="sm:text-2xl md:text-[26px] text-[28px] text-white-A700"
-                    size="txtSFProBold28"
-                  >
-                    Ledger
-                  </Text>
-                </div>
-              </div>
-            </div>
-            <div
-              className="bg-cover bg-no-repeat flex flex-col h-[70px] items-center justify-start mt-5 p-[15px] w-full"
-              style={{ backgroundImage: "url('images/img_group2632.svg')" }}
+              }
+              color="black_900"
+              size="lg"
+              variant="fill"
             >
-              <div className="flex flex-row gap-[15px] items-center justify-center w-[27%] md:w-full">
-                <Button
-                  className="flex h-10 items-center justify-center rounded-[50%] w-10"
-                  size="xs"
-                  variant="gradient"
-                  color="indigo_500_deep_purple_A400"
-                >
-                  <Img
-                    src="images/img_group1000010417.png"
-                    alt="group1000010417"
-                  />
-                </Button>
-                <div className="flex flex-col items-center justify-start">
-                  <Text
-                    className="sm:text-2xl md:text-[26px] text-[28px] text-white-A700"
-                    size="txtSFProBold28"
-                  >
-                    Phantom
-                  </Text>
-                </div>
+              <div className="font-bold md:text-[26px] sm:text-2xl text-[28px] text-left">
+                Ledger
+
               </div>
-            </div>
-            <div
-              className="bg-cover bg-no-repeat flex flex-col h-[70px] items-center justify-end mt-5 p-[15px] w-full"
-              style={{ backgroundImage: "url('images/img_group2633.svg')" }}
+            </Button>
+
+            <Button className="cursor-pointer flex items-center justify-center min-w-[671px] md:min-w-full mt-5 rounded-[15px]"
+              leftIcon={
+                <Img className="h-6 mt-[7px]"
+                  src="images/img_group1000010417.png"
+                  alt="group1000010417"
+                />
+              }
+              size="lg"
+              variant="fill"
+              color="black_900"
             >
-              <div className="flex flex-row gap-[15px] items-start justify-center mt-0.5 w-[23%] md:w-full">
+
+              <div className="font-bold md:text-[26px] sm:text-2xl text-[28px] text-left">
+
+                Phantom
+              </div>
+            </Button>
+            <Button className="cursor-pointer flex items-center justify-center min-w-[671px] md:min-w-full mt-5 rounded-[15px]"
+              leftIcon={
                 <Img
                   className="h-[33px]"
                   src="images/img_location_white_a700.svg"
                   alt="location"
                 />
-                <div className="flex flex-col items-center justify-start mt-0.5">
-                  <Text
-                    className="sm:text-2xl md:text-[26px] text-[28px] text-white-A700"
-                    size="txtSFProBold28"
-                  >
-                    BitKeep
-                  </Text>
-                </div>
-              </div>
-            </div>
-            <div
-              className="bg-cover bg-no-repeat flex flex-col h-[70px] items-center justify-start mt-5 p-[15px] w-full"
-              style={{ backgroundImage: "url('images/img_group2631.svg')" }}
+              }
+              size="lg"
+              variant="fill"
+              color="deep_purple_A200"
             >
-              <div className="flex flex-row gap-[15px] items-center justify-center w-[19%] md:w-full">
+              <div className="font-bold md:text-[26px] sm:text-2xl text-[28px] text-left">
+                BitKeep
+
+              </div>
+            </Button>
+
+            <Button className="cursor-pointer flex items-center justify-center min-w-[671px] md:min-w-full mt-5 rounded-[15px]"
+              leftIcon={
                 <Img
                   className="h-10 md:h-auto object-cover w-10"
                   src="images/img_unnamed.png"
                   alt="unnamed"
                 />
-                <div className="flex flex-col items-center justify-start">
-                  <Text
-                    className="sm:text-2xl md:text-[26px] text-[28px] text-white-A700"
-                    size="txtSFProBold28"
-                  >
-                    Core
-                  </Text>
-                </div>
+              }
+              size="lg"
+              variant="fill"
+              color="black_900"
+            >
+
+              <div className="font-bold md:text-[26px] sm:text-2xl text-[28px] text-left">
+                Core
+
               </div>
-            </div>
+            </Button>
+          </div>
           </div>
         </div>
-      </div>
     </>
   );
 };

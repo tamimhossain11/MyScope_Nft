@@ -29,42 +29,42 @@ const VerificationCordpagePage = () => {
 
   const inputStyle = isPinCodeValid
     ? {
-        fontFamily: "sfpro",
-        width: "22%",
-        fontSize: "32px",
-        backgroundColor: "white",
-        color: "#05011D",
-        border: "none",
-        borderBottom: "2.5px solid black",
-        textAlign: "center",
-        fontWeight: "590",
-        marginLeft: "2.5%",
-      }
+      fontFamily: "sfpro",
+      width: "22%",
+      fontSize: "32px",
+      backgroundColor: "white",
+      color: "#05011D",
+      border: "none",
+      borderBottom: "2.5px solid black",
+      textAlign: "center",
+      fontWeight: "590",
+      marginLeft: "2.5%",
+    }
     : {
-        fontFamily: "sfpro",
-        width: "22%",
-        fontSize: "32px",
-        backgroundColor: "white",
-        color: "red",
-        border: "none",
-        borderBottom: "2.5px solid red",
-        textAlign: "center",
-        fontWeight: "590",
-        marginLeft: "2.5%",
-      };
+      fontFamily: "sfpro",
+      width: "22%",
+      fontSize: "32px",
+      backgroundColor: "white",
+      color: "red",
+      border: "none",
+      borderBottom: "2.5px solid red",
+      textAlign: "center",
+      fontWeight: "590",
+      marginLeft: "2.5%",
+    };
   return (
     <>
       <div className="bg-black-900 flex flex-col font-sfpro items-center justify-start mx-auto p-[60px] md:px-10 sm:px-5 w-full">
         <div className="bg-white-A700 flex flex-col items-start justify-start max-w-[1800px] mx-auto md:px-5 rounded-[30px] w-full">
           <div className="flex md:flex-col flex-row md:gap-10 items-center justify-between w-[93%] md:w-full">
             <div className="flex flex-col items-center justify-start w-[53%] md:w-full">
-              <div className="h-[960px] relative w-full">
+              <div className="min:h-[960px] h-full  relative w-full">
                 <Img
-                  className="h-[960px] m-auto object-cover rounded-[30px] w-full"
+                  className="min:h-[960px] h-full sm:h-[460px] m-auto object-cover rounded-[30px] w-full"
                   src="images/img_rectangle66495.png"
                   alt="rectangle66495"
                 />
-                <div className="absolute bg-black-900_19 flex flex-col h-full inset-[0] items-center justify-center md:px-10 sm:px-5 rounded-[30px]">
+                <div className="absolute bg-black-900_19 flex flex-col h-full inset-[0] items-center justify-center md:px-40 sm:px-5 rounded-[30px]">
                   <Img
                     className="h-[357px] md:h-auto my-[86px] object-cover"
                     src="images/img_myscpelogo1.png"
@@ -90,26 +90,26 @@ const VerificationCordpagePage = () => {
                 </Text>
               </div>
               <div className="min:w-[700px]  w-full">
-              <ReactCodeInput
-                id="pinCode"
-                type="text"
-                fields={4}
-                onChange={handlePinChange}
-                value={pinCode}
-                inputStyle={inputStyle}
-              />
-          
-                </div>
-                <Button
-                  className="cursor-pointer font-bold min:w-[671px] w-full md:mb-5 rounded-[15px] sm:text-2xl md:text-[24px] text-[28px] text-center"
-                  color="deep_purple_A200"
-                  size="lg"
-                  variant="fill"
-                  onClick={checkPinCode}
-                >
-                  Verify
-                </Button>
-              
+                <ReactCodeInput
+                  id="pinCode"
+                  type="text"
+                  fields={4}
+                  onChange={handlePinChange}
+                  value={pinCode}
+                  inputStyle={inputStyle}
+                />
+
+              </div>
+              <Button
+                className="cursor-pointer font-bold min:w-[671px] w-full md:mb-5 rounded-[15px] sm:text-2xl md:text-[24px] text-[28px] text-center"
+                color="deep_purple_A200"
+                size="lg"
+                variant="fill"
+                onClick={checkPinCode}
+              >
+                Verify
+              </Button>
+
             </div>
           </div>
         </div>
