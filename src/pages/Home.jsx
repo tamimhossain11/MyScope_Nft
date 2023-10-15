@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <div className="dhiwise-navigation">
-      <h1>Homepage</h1>
-     <p>Developing by Tamim </p>
+      <h1>list of pages Developing by Tamim </h1>
+    
       <ul>
         
         <li>

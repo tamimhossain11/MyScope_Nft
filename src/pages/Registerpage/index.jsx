@@ -8,6 +8,7 @@ import TaskAltIcon from '@mui/icons-material/TaskAlt';
 import FormControl from '@mui/material/FormControl';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import { Phone } from "@mui/icons-material";
 
 
 const RegisterpagePage = () => {
@@ -31,6 +32,7 @@ const RegisterpagePage = () => {
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
+  
   return (
     <>
       <div className="bg-black-900 flex flex-col font-sfpro items-center justify-start mx-auto p-[60px] md:px-10 sm:px-5 w-full">
@@ -66,8 +68,11 @@ const RegisterpagePage = () => {
                 Sign Up to Continue
               </Text>
               <div className="flex flex-col items-start justify-start mt-[54px] w-full">
+
+                {/*Form starts from here */}
+
               <FormControl sx={{ m: 2 }} >
-                  <InputLabel htmlFor="outlined-adornment-Email or Number" color="secondary">Email or Number*</InputLabel>
+                  <InputLabel htmlFor="outlined-adornment-Email or Number" color="secondary">Email*</InputLabel>
                   <OutlinedInput
                     style={{
                       borderRadius: '10px',
@@ -109,7 +114,32 @@ const RegisterpagePage = () => {
                   />
                 </FormControl>
                 <FormControl sx={{ m: 2 }} >
-                  <InputLabel htmlFor="outlined-adornment-Email or Number" color="secondary">Email or Number*</InputLabel>
+                  <InputLabel htmlFor="outlined-adornment-Email or Number" color="secondary">Mobile Number*</InputLabel>
+                  <OutlinedInput
+                    style={{
+                      borderRadius: '10px',
+                      width: '671px',
+                      height: '70px',
+                      transition: 'border-color 0.3s',
+                    }}
+                    defaultValue=""
+                    color="secondary"
+                    focused
+                    aria-describedby="outlined-weight-helper-text"
+                    id="phone"
+                    value={Phone}
+                    
+                    label="Email or number"
+                    onMouseOver={(e) => {
+                      e.target.style.borderColor = 'red'; // Change the border color on hover
+                    }}
+                    onMouseOut={(e) => {
+                      e.target.style.borderColor = 'initial'; // Reset the border color on mouse out
+                    }}
+                  />
+                </FormControl>
+                <FormControl sx={{ m: 2 }} >
+                  <InputLabel htmlFor="outlined-adornment-Email or Number" color="secondary">User Name*</InputLabel>
                   <OutlinedInput
                     style={{
                       borderRadius: '10px',
@@ -151,7 +181,7 @@ const RegisterpagePage = () => {
                   />
                 </FormControl>
                 <FormControl sx={{ m: 2 }} >
-                  <InputLabel htmlFor="outlined-adornment-Email or Number" color="secondary">Email or Number*</InputLabel>
+                  <InputLabel htmlFor="outlined-adornment-Email or Number" color="secondary">Gender*</InputLabel>
                   <OutlinedInput
                     style={{
                       borderRadius: '10px',
@@ -235,7 +265,7 @@ const RegisterpagePage = () => {
                   />
                 </FormControl>
                 <FormControl sx={{ m: 2 }}>
-                  <InputLabel htmlFor="outlined-adornment-password" color="secondary" className="text-[22px]">Password*</InputLabel>
+                  <InputLabel htmlFor="outlined-adornment-password" color="secondary" className="text-[22px]">Confirm Password*</InputLabel>
                   <OutlinedInput
                     style={{
                       borderRadius: '10px',
@@ -267,7 +297,7 @@ const RegisterpagePage = () => {
 
                         </IconButton>
                       </InputAdornment>}
-                    label="Amount a"
+                    label="Amount a for confirm"
                     onMouseOver={(e) => {
                       e.target.style.borderColor = 'secondary'; // Change the border color on hover
                     }}
@@ -300,7 +330,7 @@ const RegisterpagePage = () => {
                       and{" "}
                     </span>
                     <a
-                      href=""
+                      href="/loginpage1"
                       className="text-deep_purple-A200 font-sfpro text-left font-bold underline"
                     >
                       Privacy Policy.
@@ -315,6 +345,7 @@ const RegisterpagePage = () => {
                 >
                   Register
                 </Button>
+                {/*Form ends from here */}
               </div>
             </div>
           </div>
