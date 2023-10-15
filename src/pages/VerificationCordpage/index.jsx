@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate from React Router
+import { useNavigate } from "react-router-dom";
 import { Button, Img, Text } from "components";
 import ReactCodeInput from "react-code-input";
-
 
 const CORRECT_PIN_CODE = "4089";
 
@@ -24,39 +23,35 @@ const VerificationCordpagePage = () => {
   };
 
   const handlePinChange = (pin) => {
-    setPinCode(pin); // Corrected from the previous issue
+    setPinCode(pin);
     setBtnIsPressed(false);
   };
 
-
-  const props = { 
-    inputStyle: { 
-      fontFamily: 'sfpro', 
-      width: '22%', 
-      fontSize: '32px',  
-      backgroundColor: 'white', 
-      color: '#05011D', 
-      border: 'none',
-      borderBottom: '2.5px solid black',
-      textAlign: 'center',
-      fontWeight: "590",
-      marginLeft:'2.5%'
-     
-    }, 
-    inputStyleInvalid: { 
-      fontFamily: 'sfpro', 
-      margin:  '10px', 
-      MozAppearance: 'textfield', 
-      width: '20%px', 
-      fontSize: '32px',  
-      backgroundColor: 'white', 
-      color: 'red', 
-      border: 'none',
-      borderBottom: '2px solid red',
-      textAlign: 'center',
-      fontWeight: "590",
-    } 
-  }
+  const inputStyle = isPinCodeValid
+    ? {
+        fontFamily: "sfpro",
+        width: "22%",
+        fontSize: "32px",
+        backgroundColor: "white",
+        color: "#05011D",
+        border: "none",
+        borderBottom: "2.5px solid black",
+        textAlign: "center",
+        fontWeight: "590",
+        marginLeft: "2.5%",
+      }
+    : {
+        fontFamily: "sfpro",
+        width: "22%",
+        fontSize: "32px",
+        backgroundColor: "white",
+        color: "red",
+        border: "none",
+        borderBottom: "2.5px solid red",
+        textAlign: "center",
+        fontWeight: "590",
+        marginLeft: "2.5%",
+      };
   return (
     <>
       <div className="bg-black-900 flex flex-col font-sfpro items-center justify-start mx-auto p-[60px] md:px-10 sm:px-5 w-full">
@@ -95,15 +90,14 @@ const VerificationCordpagePage = () => {
                 </Text>
               </div>
               <div className="min:w-[700px]  w-full">
-                <ReactCodeInput
-                  id="pinCode"
-                  type="text"
-                  isValid={isPinCodeValid}
-                  fields={4}
-                  onChange={handlePinChange}
-                  value={pinCode}
-                  inputStyle={props.inputStyle}
-                />
+              <ReactCodeInput
+                id="pinCode"
+                type="text"
+                fields={4}
+                onChange={handlePinChange}
+                value={pinCode}
+                inputStyle={inputStyle}
+              />
           
                 </div>
                 <Button
