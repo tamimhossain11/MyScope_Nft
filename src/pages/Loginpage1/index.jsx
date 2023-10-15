@@ -64,7 +64,7 @@ const Loginpage1Page = () => {
   return (
     <>
       <div className="bg-black-900 flex flex-col font-sfpro items-center justify-start mx-auto p-[60px] md:px-10 sm:px-5 w-full">
-        <div className="custom-scrollbar bg-white-A700 flex md:flex-col flex-row md:gap-10 gap-[123px] items-start justify-start max-w-[1800px] mb-[25px] mx-auto pb-[70px] pr-[70px] md:px-5 rounded-[30px] w-full">
+        <div className="custom-scrollbar-container bg-white-A700 flex md:flex-col flex-row md:gap-10 gap-[123px] items-start justify-start max-w-[1800px] mb-[25px] mx-auto pb-[70px] pr-[70px] md:px-5 rounded-[30px] w-full">
           <div className="flex md:flex-1 flex-col items-center justify-start w-[51%] md:w-full">
             <div className="min:h-[960px] h-full  relative w-full">
               <Img 
@@ -81,11 +81,11 @@ const Loginpage1Page = () => {
                 />
               </div>
             </div>
-          </div>
+            </div>
            {/*Scroller effect and responsiveness should implemented from here  */}
            
-           <div className=" flex md:flex-1 flex-col items-center justify-start md:mt-0 mt-[58px] w-[49%] md:w-full">
-           
+           <div className="custom-scrollbar-content flex md:flex-1 flex-col items-center justify-start md:mt-0 mt-[58px] w-[49%] md:w-full">
+           <div className="custom-scrollbar-scrollable">
             <div className="flex flex-col gap-[55px] items-center justify-start w-full">
               <div className="flex flex-col gap-3 items-center justify-start">
               
@@ -434,6 +434,7 @@ const Loginpage1Page = () => {
             </Button>
           </div>
           </div>
+        </div>
         </div>
     </>
   );
