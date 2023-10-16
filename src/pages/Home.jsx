@@ -8,7 +8,7 @@ const Home = () => {
       <ul>
         
         <li>
-          <Link to="/loginpage1">Loginpage1</Link>
+          <Link to="/loginpage">Loginpage</Link>
         </li>
         <li>
           <Link to="/registerpage">Registerpage</Link>

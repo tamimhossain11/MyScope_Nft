@@ -58,7 +58,6 @@ const VerificationCordpage = React.lazy(() =>
 );
 const ForgetPasswordpage = React.lazy(() => import("pages/ForgetPasswordpage"));
 const Registerpage = React.lazy(() => import("pages/Registerpage"));
-const Loginpage1 = React.lazy(() => import("pages/Loginpage1"));
 const Loginpage = React.lazy(() => import("pages/Loginpage"));
 const ProjectRoutes = () => {
   return (
@@ -68,7 +67,6 @@ const ProjectRoutes = () => {
           <Route path="/" element={<Home />} />
           <Route path="*" element={<NotFound />} />
           <Route path="/loginpage" element={<Loginpage />} />
-          <Route path="/loginpage1" element={<Loginpage1 />} />
           <Route path="/registerpage" element={<Registerpage />} />
           <Route path="/forgetpasswordpage" element={<ForgetPasswordpage />} />
           <Route
