@@ -1,6 +1,5 @@
 ## tamim_s_application1
 
-##hi all,I am Abu Sufian contributing in this project
 
 
 ## Description
