@@ -1,18 +1,12 @@
 .custom-scrollbar {
     position: relative;
     overflow: hidden;
-    /* Add custom scrollbar styles here */
-    /* Example:
-    scrollbar-width: thin;
-    scrollbar-color: #888 #f1f1f1;
-    */
-  }
-  
-  .custom-scrollbar-content {
     max-height: 960px; /* Adjust the maximum height as needed */
     overflow-y: scroll;
     padding-right: 20px; /* Add the desired gap value */
   }
+  
+ 
   
   /* Add your custom scrollbar styles here */
   

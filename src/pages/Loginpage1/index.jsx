@@ -9,7 +9,10 @@ import TaskAltIcon from '@mui/icons-material/TaskAlt';
 import FormControl from '@mui/material/FormControl';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
+import { AiFillApple } from 'react-icons/ai';
+import { BiLogoGoogle } from 'react-icons/bi';
+
 
 const Loginpage1Page = () => {
   const [email, setEmail] = useState("");
@@ -32,7 +35,7 @@ const Loginpage1Page = () => {
     setPassword(e.target.value);
   };
 
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -64,31 +67,29 @@ const Loginpage1Page = () => {
   return (
     <>
       <div className="bg-black-900 flex flex-col font-sfpro items-center justify-start mx-auto p-[60px] md:px-10 sm:px-5 w-full">
-        <div className="custom-scrollbar-container bg-white-A700 flex md:flex-col flex-row md:gap-10 gap-[123px] items-start justify-start max-w-[1800px] mb-[25px] mx-auto pb-[70px] pr-[70px] md:px-5 rounded-[30px] w-full">
-          <div className="flex md:flex-1 flex-col items-center justify-start w-[51%] md:w-full">
+        <div className="bg-white-A700 flex md:flex-col flex-row md:gap-10 gap-[5%] items-start justify-start max-w-[1800px] mb-[25px] mx-auto  md:px-5 rounded-[30px] w-full">
+          <div className="flex md:flex-1 flex-col items-center justify-start w-[48%] md:w-full">
             <div className="min:h-[960px] h-full  relative w-full">
-              <Img 
+              <Img
                 className="min:h-[960px] h-full sm:h-[460px] m-auto object-cover rounded-[30px] w-full"
                 src="images/img_rectangle66495.png"
                 alt="rectangle66495"
               />
-              <div className=" absolute bg-black-900_19 flex flex-col h-full inset-[0] items-center justify-center md:px-40 sm:px-5 rounded-[30px]">
+              <div className="absolute bg-black-900_19 flex flex-col h-full inset-[0] items-center justify-center md:px-40 sm:px-5 rounded-[30px]">
                 <Img
-                  className=" h-[357px] md:h-auto my-[86px] object-cover"
+                  className="h-[357px] md:h-auto my-[86px] object-cover"
                   src="images/img_myscpelogo1.png"
                   alt="myscpelogoOne"
 
                 />
               </div>
             </div>
-            </div>
-           {/*Scroller effect and responsiveness should implemented from here  */}
-           
-           <div className="custom-scrollbar-content flex md:flex-1 flex-col items-center justify-start md:mt-0 mt-[58px] w-[49%] md:w-full">
-           <div className="custom-scrollbar-scrollable">
-            <div className="flex flex-col gap-[55px] items-center justify-start w-full">
+          </div>
+          {/*Scroller effect and responsiveness should implemented from here  */}
+
+          <div className="custom-scrollbar flex md:flex-1 flex-col  justify-start md:mt-0 w-[47%] md:w-full pr-20 md:pr-0">
+            <div className="flex flex-col gap-[55px]  mt-10 items-center justify-start w-full">
               <div className="flex flex-col gap-3 items-center justify-start">
-              
                 <Text
                   className="sfprotext-regular sm:text-4xl md:text-[38px] text-[40px] text-black-900 text-center"
                   size="txtSFProBold40"
@@ -104,17 +105,17 @@ const Loginpage1Page = () => {
               </div>
               <div className="flex flex-col items-center justify-start w-full">
 
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} className="w-[90%]">
                   <FormControl sx={{ m: 2 }} >
                     <InputLabel
-                     htmlFor="outlined-adornment-Email or Number" 
-                     color="secondary"
+                      htmlFor="outlined-adornment-Email or Number"
+                      color="secondary"
                       shrink={true}
                       sx={{
-                      backgroundColor: 'white',
-                      fontSize: '24px', 
-                      marginLeft:'5px'
-                    }}
+                        backgroundColor: 'white',
+                        fontSize: '24px',
+                        marginLeft: '5px'
+                      }}
                     >
                       Email or Number*</InputLabel>
                     <OutlinedInput
@@ -125,8 +126,8 @@ const Loginpage1Page = () => {
                         transition: 'border-color 0.3s',
                       }}
                       sx={{
-                        paddingLeft: '10px',  
-                        fontSize:'20px',
+                        paddingLeft: '10px',
+                        fontSize: '20px',
                       }}
                       color="secondary"
                       focused
@@ -155,12 +156,12 @@ const Loginpage1Page = () => {
                       color="secondary"
                       shrink={true}
                       sx={{
-                      backgroundColor: 'white',
-                      fontSize: '24px' ,
-                      marginLeft:'5px'
-                    }}
+                        backgroundColor: 'white',
+                        fontSize: '24px',
+                        marginLeft: '5px'
+                      }}
                     >
-                      Password* 
+                      Password*
                     </InputLabel>
                     <OutlinedInput
                       style={{
@@ -170,8 +171,8 @@ const Loginpage1Page = () => {
                         transition: 'border-color 0.3s',
                       }}
                       sx={{
-                        paddingLeft: '10px',  
-                        fontSize:'20px',
+                        paddingLeft: '10px',
+                        fontSize: '20px',
                       }}
                       color="secondary"
                       focused
@@ -195,8 +196,8 @@ const Loginpage1Page = () => {
                     />
                   </FormControl>
 
-                  <div className="flex flex-row sm:gap-10 items-start justify-between mt-[19px] w-full">
-                    <div className="flex flex-row gap-2.5 items-center justify-start mb-0.5">
+                  <div className="flex flex-row sm:gap-10 items-start justify-between mt-[19px] mr-5 w-full ">
+                    <div className="flex flex-row gap-2 items-center justify-start mb-0.5">
                       <div className="bg-white-A700 border-2 border-gray-200 border-solid h-[26px] rounded-[5px] w-[26px]"></div>
                       <Text
                         className="text-[22px] text-black-900 sm:text-lg md:text-xl"
@@ -212,6 +213,7 @@ const Loginpage1Page = () => {
                       <Text size="txtSFProMedium22">Forgot password?</Text>
                     </a>
                   </div>
+
                   <Button
                     type="submit"
                     className="cursor-pointer font-bold w-full min:w-[671px] mt-[46px] rounded-[15px] sm:text-2xl md:text-[26px] text-[28px] text-center"
@@ -222,7 +224,8 @@ const Loginpage1Page = () => {
                     Log In
                   </Button>
                 </form>
-                <div className="flex flex-row items-start justify-center mt-[29px] w-[48%] md:w-full">
+
+                <div className="flex flex-row items-start justify-center mt-[29px] w-[90%] md:w-full">
                   <div
 
                     className="mb-0.5 text-[22px] text-black-900 sm:text-lg text-right md:text-xl"
@@ -238,9 +241,9 @@ const Loginpage1Page = () => {
                 </div>
               </div>
             </div>
-            <div className="h-[22px] md:h-[66px] mt-11 relative w-[99%] md:w-full">
+            <div className="h-[22px] md:h-[20px] mt-11 relative w-[99%] ">
               <Img
-                className="absolute bottom-[45%] h-px inset-x-[0] mx-auto object-cover"
+                className="absolute bottom-[45%]  inset-x-[0] mx-auto object-cover"
                 src="images/img_group1000009849.png"
                 alt="group1000009849"
               />
@@ -255,9 +258,9 @@ const Loginpage1Page = () => {
             </div>
             <div className="flex flex-col items-center justify-start mt-[46px] w-full">
               <div className="flex flex-col gap-[7px] items-center justify-start w-full">
-                <div className="flex flex-row items-center justify-center w-1/4 md:w-full">
+                <div className="flex flex-row items-center justify-center w-[45%] md:w-[45%]">
                   <Img
-                    className="h-[17px] md:h-auto object-cover w-[16%]"
+                    className="h-[17px] md:h-[10%] object-cover w-[8%]"
                     src="images/img_maskgroup_17x26.png"
                     alt="maskgroup"
                   />
@@ -270,34 +273,29 @@ const Loginpage1Page = () => {
                 </div>
                 <Line className="bg-black-900 h-px w-full" />
               </div>
+
+              <Button
+                className="cursor-pointer font-bold w-full min:w-[671px] mt-[46px] rounded-[15px] sm:text-2xl md:text-[26px] text-[28px]  flex items-center justify-center"
+                onClick={() => googleSignIn()}
+                leftIcon={
+                  < BiLogoGoogle
+                    style={{}}
+                  />
+                }
+                color="blue_A200"
+                size="lg"
+                variant="fill"
+              >
+                <div className="font-bold md:text-[26px] sm:text-2xl text-[28px] text-center">
+                  Google
+                </div>
+              </Button>
             </div>
             <Button
-              className="common-pointer cursor-pointer flex items-center justify-center min-w-[671px] md:min-w-full mt-[38px] rounded-[15px]"
-              onClick={() => googleSignIn()}
+              className="cursor-pointer font-bold w-full min:w-[671px] mt-[20px] rounded-[15px] sm:text-2xl md:text-[26px] text-[28px]  flex items-center justify-center"
               leftIcon={
-                <div className="h-5 mt-1 mb-2 mr-[15px] w-5 shadow-bs">
-                  <Img
-                    className="h-5"
-                    src="images/img_google.svg"
-                    alt="google"
-                  />
-                </div>
-              }
-              color="blue_A200"
-              size="lg"
-              variant="fill"
-            >
-              <div className="font-bold md:text-[26px] sm:text-2xl text-[28px] text-center">
-                Google
-              </div>
-            </Button>
-            <Button
-              className="cursor-pointer flex items-center justify-center min-w-[671px] md:min-w-full mt-5 rounded-[15px]"
-              leftIcon={
-                <Img
-                  className="h-7 mt-0.5 mb-[3px] mr-[15px]"
-                  src="images/img_lock.svg"
-                  alt="lock"
+                < AiFillApple
+                  style={{ fontSize: '30px' }}
                 />
               }
               color="gray_700"
@@ -309,7 +307,7 @@ const Loginpage1Page = () => {
               </div>
             </Button>
             <Button
-              className="cursor-pointer flex items-center justify-center min-w-[671px] md:min-w-full mt-5 rounded-[15px]"
+              className="cursor-pointer font-bold w-full min:w-[671px] mt-[20px] rounded-[15px] sm:text-2xl md:text-[26px] text-[28px]  flex items-center justify-center"
               leftIcon={
                 <Img
                   className="h-7 mt-0.5 mb-[3px] mr-[15px]"
@@ -326,7 +324,7 @@ const Loginpage1Page = () => {
               </div>
             </Button>
             <Button
-              className="cursor-pointer flex items-center justify-center min-w-[671px] md:min-w-full mt-5 rounded-[15px]"
+              className="cursor-pointer font-bold w-full min:w-[671px] mt-[20px] rounded-[15px] sm:text-2xl md:text-[26px] text-[28px]  flex items-center justify-center"
               leftIcon={
                 <Img
                   className="h-10 w-10"
@@ -343,7 +341,7 @@ const Loginpage1Page = () => {
               </div>
             </Button>
             <Button
-              className="cursor-pointer flex items-center justify-center min-w-[671px] md:min-w-full mt-5 rounded-[15px]"
+              className="cursor-pointer font-bold w-full min:w-[671px] mt-[20px] rounded-[15px] sm:text-2xl md:text-[26px] text-[28px]  flex items-center justify-center"
               leftIcon={<Img
                 className="h-6 mt-[7px]"
                 src="images/img_reply.svg"
@@ -361,7 +359,7 @@ const Loginpage1Page = () => {
             </Button>
 
             <Button
-              className="cursor-pointer flex items-center justify-center min-w-[671px] md:min-w-full mt-5 rounded-[15px]"
+              className="cursor-pointer font-bold w-full min:w-[671px] mt-[20px] rounded-[15px] sm:text-2xl md:text-[26px] text-[28px]  flex items-center justify-center"
               leftIcon={
                 <Img
                   className="h-[34px]"
@@ -379,7 +377,8 @@ const Loginpage1Page = () => {
               </div>
             </Button>
 
-            <Button className="cursor-pointer flex items-center justify-center min-w-[671px] md:min-w-full mt-5 rounded-[15px]"
+            <Button
+              className="cursor-pointer font-bold w-full min:w-[671px] mt-[20px] rounded-[15px] sm:text-2xl md:text-[26px] text-[28px]  flex items-center justify-center"
               leftIcon={
                 <Img className="h-6 mt-[7px]"
                   src="images/img_group1000010417.png"
@@ -396,7 +395,8 @@ const Loginpage1Page = () => {
                 Phantom
               </div>
             </Button>
-            <Button className="cursor-pointer flex items-center justify-center min-w-[671px] md:min-w-full mt-5 rounded-[15px]"
+            <Button
+              className="cursor-pointer font-bold w-full min:w-[671px] mt-[20px] rounded-[15px] sm:text-2xl md:text-[26px] text-[28px]  flex items-center justify-center"
               leftIcon={
                 <Img
                   className="h-[33px]"
@@ -414,7 +414,8 @@ const Loginpage1Page = () => {
               </div>
             </Button>
 
-            <Button className="cursor-pointer flex items-center justify-center min-w-[671px] md:min-w-full mt-5 rounded-[15px]"
+            <Button
+              className="cursor-pointer font-bold w-full min:w-[671px] mt-[20px] mb-[30px] rounded-[15px] sm:text-2xl md:text-[26px] text-[28px]  flex items-center justify-center"
               leftIcon={
                 <Img
                   className="h-10 md:h-auto object-cover w-10"
@@ -433,9 +434,8 @@ const Loginpage1Page = () => {
               </div>
             </Button>
           </div>
-          </div>
         </div>
-        </div>
+      </div>
     </>
   );
 };
