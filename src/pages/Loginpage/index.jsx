@@ -26,7 +26,7 @@ const Loginpage = () => {
                 src="images/img_rectangle66495.png"
                 alt="rectangle66495"
               />
-              <div className="absolute bg-black-900_19 flex flex-col h-full inset-[0] items-center justify-center md:px-40 sm:px-5 rounded-[30px]">
+              <div className="absolute bg-black-900_19 flex flex-col h-full inset-[0] items-center justify-center md:px-10 sm:px-5 rounded-[30px]">
                 <Img
                   className="h-[357px] md:h-auto my-[86px] object-cover"
                   src="images/img_myscpelogo1.png"

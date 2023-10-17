@@ -6,6 +6,7 @@ import App from "./App";
 import "./styles/index.css";
 import "./styles/tailwind.css";
 import "./pages/Loginpage/login.css"
+import "./pages/Homepage/home.css"
 ReactDOM.render(
   <React.StrictMode>
     <App />

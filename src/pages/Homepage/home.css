@@ -1,0 +1,17 @@
+/* Apply custom styles to position navigation icons at the bottom center */
+.swiper-container {
+    position: relative;
+  }
+  
+  .swiper-nav-button {
+    position: absolute;
+    bottom: 20px; /* Adjust the distance from the bottom as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Style the icons inside the navigation buttons if needed */
+  .swiper-nav-button Img {
+    /* Add any additional styles you need here */
+  }

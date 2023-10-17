@@ -38,7 +38,7 @@ const Home = () => {
           <Link to="/livechatpage">Livechatpage</Link>
         </li>
         <li>
-          <Link to="/404Page">404 Page</Link>
+          <Link to="/404Page">404</Link>
         </li>
        {/*  
         <li>

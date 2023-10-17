@@ -1,14 +1,15 @@
 import React, { useState, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import 'swiper/swiper-bundle.css';
 import SwiperCore, { EffectCoverflow, Navigation } from "swiper/core";
+
+
 
 import {
   Button,
   Img,
   Line,
   List,
-  PagerIndicator,
   Text,
 } from "components";
 import Navbar from "components/Navbar";
@@ -16,26 +17,8 @@ import HomeScrollCards from "components/HomeScrollCards";
 
 SwiperCore.use([EffectCoverflow, Navigation]);
 
-const HomepagePage = () => {
-  const [currentCardIndex, setCurrentCardIndex] = useState(0);
 
-  const handleNextCard = () => {
-    const newIndex = currentCardIndex + 1;
-
-    if (newIndex < 7) { // Adjust to the total number of cards
-      setCurrentCardIndex(newIndex);
-    }
-  };
-
-  const handlePrevCard = () => {
-    const newIndex = currentCardIndex - 1;
-
-    if (newIndex >= 0) {
-      setCurrentCardIndex(newIndex);
-    }
-  };
-
-
+function HomepagePage({ currentCardIndex }) {
 
   return (
     <>
@@ -53,17 +36,15 @@ const HomepagePage = () => {
                   Creative NFTs
                 </>
               </Text>
-              <div className="flex md:flex-col flex-row md:gap-10  w-full">
-              
-              <Swiper
-                 
+              <div className="flex md:flex-col flex-row md:gap-10  w-full" style={{ width: "100vw" }}>
+                {/*Swiper starts here */}
+                <Swiper
+                  style={{ width: "100%", height: "100%" }}
                   effect="coverflow"
                   grabCursor={true}
                   centeredSlides={true}
-                  slidesPerView={2}
+                  slidesPerView={6}
                   spaceBetween={20}
-                  width={'1600px'}
-                  
                   coverflowEffect={{
                     rotate: 30,
                     stretch: 0,
@@ -71,46 +52,85 @@ const HomepagePage = () => {
                     modifier: 1,
                   }}
                   navigation={{
-                    nextEl: ".swiper-button-next",
-                    prevEl: ".swiper-button-prev",
-                  }}
-                  onSlideChange={(swiper) => {
-                    setCurrentCardIndex(swiper.activeIndex);
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
                   }}
                 >
-                  {Array.from({ length: 1 }).map((_, index) => (
-                    <SwiperSlide key={index} className={`scroll-card horizontal`}>
-                      {/* Render HomeScrollCards component */}
-                      <HomeScrollCards isActive={index === currentCardIndex} />
-                      
-                    </SwiperSlide>
-                  ))}
+                  <SwiperSlide>
+                    <HomeScrollCards
+                      isActive={currentCardIndex === 0}
+                      imageSrc="images/img_vector13.png"
+                      name="Justin Stanton"
+                      username="EmersonLubin"
+                    />
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <HomeScrollCards
+                      isActive={currentCardIndex === 1}
+                      imageSrc="images/img_vector16.png"
+                      name="Another Name"
+                      username="AnotherUsername"
+                    />
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <HomeScrollCards
+                      isActive={currentCardIndex === 2}
+                      imageSrc="images/img_vector13.png"
+                      name="Emerson Lubin"
+                      username="EmersonLubin"
+                    />
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <HomeScrollCards
+                      isActive={currentCardIndex === 3}
+                      imageSrc="images/img_rectangle66553.png"
+                      name="Emerson Lubin"
+                      username="Emerson Lubin"
+                    />
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <HomeScrollCards
+                      isActive={currentCardIndex === 4}
+                      imageSrc="images/img_vector13_419x330.png"
+                      name="Another Name"
+                      username="AnotherUsername"
+                    />
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <HomeScrollCards
+                      isActive={currentCardIndex === 5}
+                      imageSrc="images/card6.png"
+                      name="Another Name"
+                      username="AnotherUsername"
+                    />
+                  </SwiperSlide>
+
+                  <SwiperSlide>
+                    <HomeScrollCards
+                      isActive={currentCardIndex === 6}
+                      imageSrc="images/img_vector13_344x270.png"
+                      name="Another Name"
+                      username="AnotherUsername"
+                    />
+                  </SwiperSlide>
                 </Swiper>
-
-
-            </div>
-              <div className="flex flex-row gap-10 items-center justify-center w-[16%] md:w-full">
-              <Img
-                className="h-[60px] w-[60px]"
-                src="images/img_group1000008676.svg"
-                alt="group1000008676"
-                onClick={handlePrevCard}
-              />
-              <PagerIndicator
-                className="flex h-2.5 w-[100px]"
-                count={7} // Adjust the number of cards
-                currentCardIndex={currentCardIndex}
-                setCurrentCardIndex={setCurrentCardIndex}
-                inactiveCss="inline-block cursor-pointer rounded-[50%] h-[10px] bg-gray-500_75 w-[10px]"
-                activeCss="inline-block cursor-pointer rounded-[20px] h-[10px] bg-deep_purple-500"
-              />
-              <Img
-                className="h-[60px] w-[60px]"
-                src="images/img_group1000008677.svg"
-                alt="group1000008677"
-                onClick={handleNextCard}
-              />
               </div>
+              <div className="flex flex-row gap-10 items-center justify-center w-full">
+                <div className="swiper-button-prev swiper-nav-button">
+                  <Img
+                    src="images/img_group1000008676.svg"
+                    alt="group1000008676"
+                  />
+                </div>
+                <div className="swiper-pagination" />
+                <div className="swiper-button-next swiper-nav-button">
+                  <Img
+                    src="images/img_group1000008677.svg"
+                    alt="group1000008677"
+                  />
+                </div>
+              </div>
+
             </div>
           </div>
           <div className="flex md:flex-col flex-row gap-5 items-start justify-end mt-[124px] w-[35%] md:w-full">
