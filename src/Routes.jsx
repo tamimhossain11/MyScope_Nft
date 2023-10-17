@@ -46,7 +46,6 @@ const EditProfilePage = React.lazy(() => import("pages/EditProfilePage"));
 const RankingsPage = React.lazy(() => import("pages/RankingsPage"));
 const CollectionPage = React.lazy(() => import("pages/CollectionPage"));
 const ItameDetailspage = React.lazy(() => import("pages/ItameDetailspage"));
-const Page = React.lazy(() => import("pages/Page"));
 const Livechatpage = React.lazy(() => import("pages/Livechatpage"));
 const Languespage = React.lazy(() => import("pages/Languespage"));
 const PopupProfilepage = React.lazy(() => import("pages/PopupProfilepage"));
@@ -79,7 +78,6 @@ const ProjectRoutes = () => {
           <Route path="/popupprofilepage" element={<PopupProfilepage />} />
           <Route path="/languespage" element={<Languespage />} />
           <Route path="/livechatpage" element={<Livechatpage />} />
-          <Route path="/page" element={<Page />} />
           <Route path="/itamedetailspage" element={<ItameDetailspage />} />
           <Route path="/collectionpage" element={<CollectionPage />} />
           <Route path="/rankingspage" element={<RankingsPage />} />

@@ -3,7 +3,7 @@ import { useGoogleLogin } from "@react-oauth/google";
 import { Button, Img, Line, Text } from "components";
 import { AiFillApple } from 'react-icons/ai';
 import { BiLogoGoogle } from 'react-icons/bi';
-import LoginForm from "components/LoginForm";
+import LoginForm from "Forms/LoginForm";
 
 
 const Loginpage = () => {
@@ -20,9 +20,9 @@ const Loginpage = () => {
       <div className="bg-black-900 flex flex-col font-sfpro items-center justify-start mx-auto p-[60px] md:px-10 sm:px-5 w-full">
         <div className="bg-white-A700 flex md:flex-col flex-row md:gap-10 gap-[5%] items-start justify-start max-w-[1800px] mb-[25px] mx-auto  md:px-5 rounded-[30px] w-full">
           <div className="flex md:flex-1 flex-col items-center justify-start w-[48%] md:w-full">
-            <div className="min:h-[960px] h-full  relative w-full">
+            <div className=" h-[960px] sm:h-[460px]  relative w-full">
               <Img
-                className="min:h-[960px] h-full sm:h-[460px] m-auto object-cover rounded-[30px] w-full"
+                className=" h-[960px] sm:h-[460px] m-auto object-cover rounded-[30px] w-full"
                 src="images/img_rectangle66495.png"
                 alt="rectangle66495"
               />
@@ -31,7 +31,6 @@ const Loginpage = () => {
                   className="h-[357px] md:h-auto my-[86px] object-cover"
                   src="images/img_myscpelogo1.png"
                   alt="myscpelogoOne"
-
                 />
               </div>
             </div>
@@ -125,7 +124,7 @@ const Loginpage = () => {
               </Button>
 
               <Button
-                className="cursor-pointer font-bold w-full min:w-[651px] mt-[20px] rounded-[15px] sm:text-2xl md:text-[26px] text-[28px]  flex items-center justify-center"
+                className="cursor-pointer font-bold w-full min:w-[651px] mt-[90px] md:mt-[20px] rounded-[15px] sm:text-2xl md:text-[26px] text-[28px]  flex items-center justify-center"
                 leftIcon={
                   < AiFillApple
                     style={{ fontSize: '30px', marginRight: '15px' }}

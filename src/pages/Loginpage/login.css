@@ -1,29 +1,37 @@
 .custom-scrollbar {
-    position: relative;
-    overflow: hidden;
-    max-height: 960px; /* Adjust the maximum height as needed */
-    overflow-y: scroll;
-    padding-right: 20px; /* Add the desired gap value */
+  position: relative;
+  overflow: auto; /* Use "auto" for automatic scrollbar when content overflows */
+  max-height: 960px;
+  padding-right: 20px;
+  scrollbar-width: auto; /* This is for Firefox and newer versions of Chrome */
+  scroll-behavior: smooth; /* For smooth scrolling behavior */
+}
+/* Styling for WebKit browsers (Chrome, Safari) */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 18px; /* Adjust this width to your preference */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #888;
+  
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #f1f1f1;
+  border-radius: 14px;
+  width: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+  @media (max-width: 1050px) {
+    .custom-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
   }
-  
- 
-  
-  /* Add your custom scrollbar styles here */
-  
-  .custom-scrollbar-scrollable::-webkit-scrollbar {
-    width: 18px;
+  @media (max-width: 1050px) {
+    .custom-scrollbar {
+     scroll-behavior: smooth;
+    }
   }
-  
-  .custom-scrollbar-scrollable::-webkit-scrollbar-track {
-    background: #f1f1f1;
-  }
-  
-  .custom-scrollbar-scrollable::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 14px;
-  }
-  
-  .custom-scrollbar-scrollable::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
-  

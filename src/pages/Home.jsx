@@ -17,7 +17,7 @@ const Home = () => {
           <Link to="/forgetpasswordpage">ForgetPasswordpage</Link>
         </li>
         <li>
-          <Link to="/verificationcordpage">VerificationCordpage</Link>
+          <Link to="/verificationcordpage">VerificationCodepage</Link>
         </li>
         <li>
           <Link to="/newpasswordpage">NewPasswordpage</Link>
@@ -38,7 +38,7 @@ const Home = () => {
           <Link to="/livechatpage">Livechatpage</Link>
         </li>
         <li>
-          <Link to="/page">Page</Link>
+          <Link to="/404Page">404 Page</Link>
         </li>
        {/*  
         <li>
