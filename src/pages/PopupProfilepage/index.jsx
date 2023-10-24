@@ -1,5 +1,3 @@
-import React from "react";
-
 import {
   Button,
   Img,
@@ -10,22 +8,74 @@ import {
 } from "components";
 import Footer from "components/Footer";
 import Navbar from "components/Navbar";
-
+import HomeScrollCards from "components/HomeScrollCards";
+import React, { useState, useEffect, useRef } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 
 
 const PopupProfilepagePage = () => {
+  const [currentCardIndex, setCurrentCardIndex] = useState(0);
+  const [setScrollLeft] = useState(0); // New state for scroll position
+  const scrollContainerRef = useRef(null);
   
+  const handleNextCard = () => {
+    const newIndex = currentCardIndex + 1;
+
+    if (newIndex < 4) {
+      setCurrentCardIndex(newIndex);
+    }
+  };
+
+  const handlePrevCard = () => {
+    const newIndex = currentCardIndex - 1;
+
+    if (newIndex >= 0) {
+      setCurrentCardIndex(newIndex);
+    }
+  };
+
+  useEffect(() => {
+    const scrollContainer = scrollContainerRef.current;
+    const handleScroll = () => {
+      if (scrollContainer) {
+        const newScrollLeft = scrollContainer.scrollLeft;
+        setScrollLeft(newScrollLeft); // Update scrollLeft state
+        const cardWidth = 660; // Adjust this based on your card width
+        const newActiveIndex = Math.floor((newScrollLeft + cardWidth / 2) / cardWidth);
+  
+        // Check if we have reached the last card on the right side
+        const numberOfCards = 4;
+        const maxScroll = cardWidth * (numberOfCards - 800); // Assuming numberOfCards is the total number of cards
+        if (newScrollLeft >= maxScroll) {
+          setCurrentCardIndex(numberOfCards - 800); // Set current card index to the last card
+        } else {
+          setCurrentCardIndex(newActiveIndex);
+        }
+      }
+    };
+  
+    if (scrollContainer) {
+      scrollContainer.addEventListener("scroll", handleScroll);
+    }
+  
+    return () => {
+      if (scrollContainer) {
+        scrollContainer.removeEventListener("scroll", handleScroll);
+      }
+    };
+  }, []);
 
   return (
     <>
       <div className="bg-black-900 flex flex-col font-sfpro sm:gap-10 md:gap-10 gap-[120px] items-end justify-start mx-auto py-10 w-full">
         <div className="flex flex-col items-start md:px-5 w-full">
-        
+
           <div className="overflow-x-auto w-full">
-          <Navbar/>  
+            <Navbar />
             <div className="h-[1155px] md:h-[1946px] sm:h-[920px] relative w-full">
 
-              
+
               <div className="absolute h-[1155px] md:h-[1946px] sm:h-[920px] inset-[0] justify-center m-auto overflow-auto w-full">
                 <div className="absolute bottom-[0] flex flex-col md:gap-10 gap-[60px] items-center justify-start right-[0] w-full">
                   <Text
@@ -37,280 +87,137 @@ const PopupProfilepagePage = () => {
                       Creative NFTs
                     </>
                   </Text>
-                  <div className="flex md:flex-col flex-row md:gap-10 items-center justify-between w-full">
-                    <div className="flex flex-col relative shadow-bs1 w-[13%] md:w-full">
-                      <Img
-                        className="h-[344px] mx-auto object-cover w-full"
-                        src="images/img_vector13.png"
-                        alt="vectorThirteen"
+                  <div
+                    className="scroll-cards-viewport"
+                    style={{
+                      overflow: 'hidden',
+                      paddingTop: '153px',
+                      paddingLeft: '151px',
+                      scrollBehavior: 'smooth', // Optional: Smooth scrolling
+                    }}
+                    ref={scrollContainerRef}
+                  >
+                    <div
+                      className="scroll-cards-container"
+                      style={{
+                        display: 'flex',
+                        width: `${1030 * 4}px`, // Adjust the card width and number of cards
+                        transform: `translateX(-${currentCardIndex * 860}px)`, // Adjust the card width
+                        transition: 'transform 0.5s ease', // Adjust the animation duration and easing as needed
+                        whiteSpace: 'nowrap',
+                        gap: '20px',
+                        zIndex: '1',
+
+                      }}
+                    >
+                      <HomeScrollCards
+
+                        imageSrc="images/img_vector13.png"
+                        name="Justin Stanton"
+                        username="EmersonLubin"
                       />
-                      <div
-                        className="bg-cover bg-no-repeat flex flex-col h-[114px] items-start justify-start mt-[-8.99px] mx-auto p-2.5 w-full z-[1]"
-                        style={{
-                          backgroundImage: "url('images/img_group2924.svg')",
-                        }}
-                      >
-                        <div className="flex flex-row gap-[11px] items-start justify-start mb-[11px] mt-[15px] w-[94%] md:w-full">
-                          <Img
-                            className="h-[60px] md:h-auto mt-[5px] rotate-[-1deg] rounded-[50%] w-[60px]"
-                            src="images/img_ellipse179.png"
-                            alt="ellipse179"
-                          />
-                          <div className="flex flex-col items-start justify-start rotate-[4deg]">
-                            <Text
-                              className="text-2xl md:text-[22px] text-black-900_01 sm:text-xl"
-                              size="txtSFProBold24"
-                            >
-                              Justin Stanton
-                            </Text>
-                            <Text
-                              className="lowercase ml-0.5 md:ml-[0] mt-0.5 text-base text-deep_purple-A200"
-                              size="txtSFProRegular16"
-                            >
-                              @EmersonLubin
-                            </Text>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="h-[560px] md:h-[858px] relative w-[72%] md:w-full">
-                      <div className="absolute h-[538px] md:h-[858px] inset-[0] justify-center m-auto w-full">
-                        <div className="flex md:flex-col flex-row md:gap-10 h-full items-center justify-between m-auto w-full">
-                          <div className="md:h-[419px] h-[538px] relative w-2/5 md:w-full">
-                            <div className="absolute md:h-[399px] h-[502px] inset-y-[0] left-[0] my-auto shadow-bs2 w-[46%]">
-                              <Img
-                                className="absolute h-[399px] inset-x-[0] mx-auto object-cover top-[0] w-full"
-                                src="images/img_vector16.png"
-                                alt="vectorSixteen"
-                              />
-                              <div
-                                className="absolute bg-cover bg-no-repeat bottom-[0] flex flex-col h-[119px] inset-x-[0] items-center justify-end mx-auto p-4 w-full"
-                                style={{
-                                  backgroundImage:
-                                    "url('images/img_group2925.svg')",
-                                }}
-                              >
-                                <div className="flex flex-row gap-2.5 items-start justify-start mb-[7px] mt-3 w-[98%] md:w-full">
-                                  <Img
-                                    className="h-[60px] md:h-auto mt-1.5 rotate-[-1deg] rounded-[50%] w-[60px]"
-                                    src="images/img_ellipse179_60x60.png"
-                                    alt="ellipse179_One"
-                                  />
-                                  <div className="flex flex-col items-start justify-start mb-[7px] rotate-[4deg]">
-                                    <Text
-                                      className="text-2xl md:text-[22px] text-black-900_01 sm:text-xl"
-                                      size="txtSFProBold24"
-                                    >
-                                      Justin Stanton
-                                    </Text>
-                                    <Text
-                                      className="lowercase ml-0.5 md:ml-[0] mt-0.5 text-base text-deep_purple-A200"
-                                      size="txtSFProRegular16"
-                                    >
-                                      @EmersonLubin
-                                    </Text>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div className="absolute flex flex-col inset-y-[0] my-auto right-[0] shadow-bs3 w-[56%]">
-                              <Img
-                                className="h-[419px] mx-auto object-cover w-full"
-                                src="images/img_vector13.png"
-                                alt="vectorThirteen_One"
-                              />
-                              <div
-                                className="bg-cover bg-no-repeat flex flex-col h-[129px] items-start justify-start mt-[-10.97px] mx-auto p-5 w-full z-[1]"
-                                style={{
-                                  backgroundImage:
-                                    "url('images/img_group2924.svg')",
-                                }}
-                              >
-                                <div className="flex flex-row gap-[9px] items-end justify-start mb-3.5 mt-[3px] w-[81%] md:w-full">
-                                  <Img
-                                    className="h-[60px] md:h-auto mt-2.5 rotate-[-1deg] rounded-[50%] w-[60px]"
-                                    src="images/img_ellipse179_1.png"
-                                    alt="ellipse179_Two"
-                                  />
-                                  <div className="flex flex-col items-start justify-start mb-1 rotate-[4deg]">
-                                    <Text
-                                      className="text-2xl md:text-[22px] text-black-900_01 sm:text-xl"
-                                      size="txtSFProBold24"
-                                    >
-                                      Justin Stanton
-                                    </Text>
-                                    <Text
-                                      className="lowercase ml-0.5 md:ml-[0] text-base text-deep_purple-A200"
-                                      size="txtSFProRegular16"
-                                    >
-                                      @EmersonLubin
-                                    </Text>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="md:h-[399px] h-[502px] relative shadow-bs2 w-[19%] md:w-full">
-                            <div
-                              className="absolute bg-cover bg-no-repeat bottom-[0] flex flex-col h-[119px] inset-x-[0] items-center justify-start mx-auto p-[11px] rotate-[180deg] w-full"
-                              style={{
-                                backgroundImage:
-                                  "url('images/img_group1000009949.svg')",
-                              }}
-                            >
-                              <div className="flex flex-row gap-1.5 items-end justify-start mb-[17px] mt-2 rotate-[172deg] w-[96%] md:w-full">
-                                <Img
-                                  className="h-[68px] md:h-auto mb-0.5 rotate-[-1deg] rounded-[50%] w-[68px]"
-                                  src="images/img_ellipse179_68x68.png"
-                                  alt="ellipse179_Three"
-                                />
-                                <div className="md:h-[47px] h-[63px] mt-[7px] relative rotate-[4deg] w-[69%]">
-                                  <Text
-                                    className="absolute inset-x-[0] mx-auto text-2xl md:text-[22px] text-black-900_01 sm:text-xl top-[0] w-max"
-                                    size="txtSFProBold24"
-                                  >
-                                    Justin Stanton
-                                  </Text>
-                                  <Text
-                                    className="absolute bottom-[0] left-[0] lowercase text-base text-deep_purple-A200"
-                                    size="txtSFProRegular16"
-                                  >
-                                    @EmersonLubin
-                                  </Text>
-                                </div>
-                              </div>
-                            </div>
-                            <Img
-                              className="absolute h-[399px] inset-x-[0] mx-auto object-cover top-[0] w-full"
-                              src="images/img_vector16_399x271.png"
-                              alt="vectorSixteen_One"
-                            />
-                          </div>
-                        </div>
-                        <div className="absolute flex flex-col inset-y-[0] my-auto right-[17%] shadow-bs4 w-[22%]">
-                          <Img
-                            className="h-[419px] mx-auto object-cover w-full"
-                            src="images/img_vector13_419x330.png"
-                            alt="vectorThirteen_Two"
-                          />
-                          <div
-                            className="bg-cover bg-no-repeat flex flex-col h-[129px] items-start justify-start mt-[-11.81px] mx-auto p-5 w-full z-[1]"
-                            style={{
-                              backgroundImage:
-                                "url('images/img_group1000009947.svg')",
-                            }}
-                          >
-                            <div className="flex flex-row gap-2.5 items-end justify-start mb-[15px] mt-1.5 w-[84%] md:w-full">
-                              <Img
-                                className="h-[67px] md:h-auto rotate-[-8deg] rounded-[50%] w-[67px]"
-                                src="images/img_ellipse179_67x67.png"
-                                alt="ellipse179_Four"
-                              />
-                              <div className="h-14 md:h-[39px] mb-0.5 mt-2 relative rotate-[-3deg] w-[68%]">
-                                <Text
-                                  className="absolute inset-x-[0] mx-auto text-2xl md:text-[22px] text-black-900_01 sm:text-xl top-[0] w-max"
-                                  size="txtSFProBold24"
-                                >
-                                  Justin Stanton
-                                </Text>
-                                <Text
-                                  className="absolute bottom-[0] left-[0] lowercase text-base text-deep_purple-A200"
-                                  size="txtSFProRegular16"
-                                >
-                                  @EmersonLubin
-                                </Text>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="absolute flex flex-col h-full inset-[0] items-center justify-center m-auto shadow-bs5 w-[27%]">
-                        <Img
-                          className="h-[440px] md:h-auto object-cover w-full"
-                          src="images/img_rectangle66553.png"
-                          alt="rectangle66553"
-                        />
-                        <div className="bg-white-A700 flex flex-col items-start justify-start p-5 rounded-bl-[15px] rounded-br-[15px] w-full">
-                          <div className="flex flex-row gap-[15px] items-center justify-start w-[73%] md:w-full">
-                            <Img
-                              className="h-20 md:h-auto rounded-[50%] w-20"
-                              src="images/img_ellipse196.png"
-                              alt="ellipse196"
-                            />
-                            <div className="flex flex-col gap-[5px] items-start justify-start">
-                              <Text
-                                className="text-2xl md:text-[22px] text-black-900_01 sm:text-xl"
-                                size="txtSFProBold24"
-                              >
-                                Emerson Lubin
-                              </Text>
-                              <Text
-                                className="lowercase text-base text-deep_purple-A200"
-                                size="txtSFProRegular16"
-                              >
-                                @EmersonLubin
-                              </Text>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="flex flex-col relative shadow-bs6 w-[13%] md:w-full">
-                      <Img
-                        className="h-[344px] mx-auto object-cover w-full"
-                        src="images/img_vector13_344x270.png"
-                        alt="vectorThirteen_Three"
+
+                      <HomeScrollCards
+
+                        imageSrc="images/img_vector16.png"
+                        name="Another Name"
+                        username="AnotherUsername"
                       />
-                      <div
-                        className="bg-cover bg-no-repeat flex flex-col h-[114px] items-center justify-start mt-[-9.63px] mx-auto p-[13px] rotate-[180deg] w-full z-[1]"
-                        style={{
-                          backgroundImage:
-                            "url('images/img_group1000009951.svg')",
-                        }}
-                      >
-                        <div className="flex flex-row gap-[7px] items-end justify-start mb-[13px] mt-1 rotate-[173deg] w-[99%] md:w-full">
-                          <Img
-                            className="h-[67px] md:h-auto mb-0.5 rotate-[-1deg] rounded-[50%] w-[67px]"
-                            src="images/img_ellipse179_2.png"
-                            alt="ellipse179_Five"
-                          />
-                          <div className="md:h-[41px] h-[57px] mt-3 relative rotate-[4deg] w-[69%]">
-                            <Text
-                              className="absolute inset-x-[0] mx-auto text-2xl md:text-[22px] text-black-900_01 sm:text-xl top-[0] w-max"
-                              size="txtSFProBold24"
-                            >
-                              Justin Stanton
-                            </Text>
-                            <Text
-                              className="absolute bottom-[0] left-[0] lowercase text-base text-deep_purple-A200"
-                              size="txtSFProRegular16"
-                            >
-                              @EmersonLubin
-                            </Text>
-                          </div>
-                        </div>
-                      </div>
+
+                      <HomeScrollCards
+
+                        imageSrc="images/img_vector13.png"
+                        name="Emerson Lubin"
+                        username="EmersonLubin"
+                      />
+
+                      <HomeScrollCards
+
+                        imageSrc="images/img_rectangle66553.png"
+                        name="Emerson Lubin"
+                        username="Emerson Lubin"
+                      />
+
+                      <HomeScrollCards
+
+                        imageSrc="images/img_vector13_419x330.png"
+                        name="Another Name"
+                        username="AnotherUsername"
+                      />
+
+                      <HomeScrollCards
+
+                        imageSrc="images/card6.png"
+                        name="Another Name"
+                        username="AnotherUsername"
+                      />
+
+                      <HomeScrollCards
+
+                        imageSrc="images/img_vector13_344x270.png"
+                        name="Another Name"
+                        username="AnotherUsername"
+                      />
+
                     </div>
                   </div>
-                  <div className="flex flex-row gap-10 items-center justify-center w-[16%] md:w-full">
-                    <Img
-                      className="h-[60px] w-[60px]"
-                      src="images/img_group1000008676.svg"
-                      alt="group1000008676"
+                  <div className="flex flex-row gap-5 items-center justify-start md:ml-[0] ml-[688px] mt-[137px] w-[14%] md:w-full">
+                    <FontAwesomeIcon
+                      icon={faAngleLeft}
+                      size="2xl"
+                      className="my-icon"
+                      onClick={handlePrevCard}
+                      style={{
+                        cursor: "pointer",
+                        backgroundColor: "transparent ",
+                        color: "#6D28D9",
+                        border: "1px solid #6D28D9",
+                        borderRadius: "50%",
+                        padding: "15px",
+                        transition: "background-color 0.3s, color 0.3s", // Add a smooth transition effect
+                        height: '25px',
+                        width: '25px',
+                      }}
+                      onMouseEnter={(e) => {
+                        e.target.style.backgroundColor = "#6D28D9 "; /* Change the background color on hover */
+                        e.target.style.color = "#fff "; /* Change the text color on hover */
+                      }}
+                      onMouseLeave={(e) => {
+                        e.target.style.backgroundColor = "initial"; /* Restore the initial background color */
+                        e.target.style.color = "#6D28D9"; /* Restore the initial text color */
+                      }}
                     />
+                     
                     <PagerIndicator
-                      className="flex h-3.5 w-[127px]"
-                      count={4}
-                      activeCss="inline-block cursor-pointer h-3.5 bg-deep_purple-A200 w-10 rounded-[7px]"
-                      activeIndex={1}
-                      inactiveCss="inline-block cursor-pointer rounded-[50%] h-3.5 bg-white-A700 w-3.5"
-                      selectedWrapperCss="inline-block mx-[7.50px]"
-                      unselectedWrapperCss="inline-block mx-[7.50px]"
+                      className="flex h-2.5 w-[100px]"
+                      count={4} // Adjust the number of cards
+                      currentCardIndex={currentCardIndex}
+                      setCurrentCardIndex={setCurrentCardIndex}
+                      inactiveCss="inline-block cursor-pointer rounded-[50%] h-[10px] bg-white-A700 w-[10px]"
+                      activeCss="inline-block cursor-pointer rounded-[20px] h-[10px] bg-gray-500"
                     />
-                    <Img
-                      className="h-[60px] w-[60px]"
-                      src="images/img_group1000008677.svg"
-                      alt="group1000008677"
+                    <FontAwesomeIcon
+                      icon={faAngleRight} // Use the new icon here
+                      size="2xl" // Set the desired size
+                      className="my-icon" // Add a class name for the icon
+                      onClick={handleNextCard}
+                      style={{
+                        cursor: "pointer",
+                        backgroundColor: "transparent",
+                        color: "#6D28D9", // Set the initial text color to match the border color
+                        border: "1px solid #6D28D9", // Set the border color
+                        borderRadius: "50%", // Make the button circular
+                        padding: "15px", // Add padding to the button
+                        transition: "background-color 0.3s, color 0.3s", // Add a smooth transition effect
+                      }}
+                      onMouseEnter={(e) => {
+                        e.target.style.backgroundColor = "#6D28D9"; /* Change the background color on hover */
+                        e.target.style.color = "#fff"; /* Change the text color on hover */
+                      }}
+                      onMouseLeave={(e) => {
+                        e.target.style.backgroundColor = "initial"; /* Restore the initial background color */
+                        e.target.style.color = "#6D28D9"; /* Restore the initial text color */
+                      }}
                     />
                   </div>
                 </div>
@@ -1584,7 +1491,8 @@ const PopupProfilepagePage = () => {
                 </Button>
               </div>
             </div>
-            <Footer className="flex items-center justify-center w-full" />
+
+            <Footer />
           </div>
         </div>
       </div>

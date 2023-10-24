@@ -39,3 +39,4 @@ const PagerIndicator = ({
 };
 
 export { PagerIndicator };
+

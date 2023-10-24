@@ -1,17 +1,69 @@
-/* Apply custom styles to position navigation icons at the bottom center */
+
+
 .swiper-container {
-    position: relative;
+  height: 700px;
+}
+
+/* Inactive bullet points */
+.swiper-pagination-bullet {
+  margin-bottom: 20px;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  font-size: 12px;
+  background: #ffffff !important;
+  border: 2px solid #f7f3f3;
+  border-radius: 50%; /* Makes the bullet points circular */
+}
+
+.swiper-pagination-bullet:not(.swiper-pagination-bullet-active) {
+  color: #ffffff !important; /* Text color for inactive bullet points */
+  border-color: #ffffff !important; /* Border color for inactive bullet points */
+}
+
+.swiper-pagination-bullet-active {
+  background: #9F4DEB ! important;
+  width: 26px ! important; /* Adjust the width of the active bullet */
+  border-color:#9F4DEB ! important; /* Border color for the active bullet */
+  border-radius: 30% !important;
+}
+
+/* Your media queries for responsive design */
+@media (max-width: 500px) {
+  .swiper_container {
+    height: 47rem;
   }
-  
-  .swiper-nav-button {
-    position: absolute;
-    bottom: 20px; /* Adjust the distance from the bottom as needed */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .swiper-slide {
+    width: 28rem !important;
+    height: 36rem !important;
   }
-  
-  /* Style the icons inside the navigation buttons if needed */
-  .swiper-nav-button Img {
-    /* Add any additional styles you need here */
+  .swiper-slide img {
+    width: 28rem !important;
+    height: 36rem !important;
   }
+}
+
+/* Rest of your styles remain the same */
+
+
+
+/* Additional media queries for adjusting button positions */
+@media (max-width: 990px) {
+  .slider-controler .swiper-button-next {
+    left: 70% !important;
+    transform: translateX(-70%) !important;
+  }
+}
+
+@media (max-width: 450px) {
+  .slider-controler .swiper-button-next {
+    left: 80% !important;
+    transform: translateX(-80%) !important;
+  }
+
+  .slider-controler .swiper-button-prev {
+    left: 20% !important;
+    transform: translateX(-20%) !important;
+  }
+}

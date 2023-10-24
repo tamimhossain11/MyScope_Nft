@@ -7,6 +7,7 @@ import "./styles/index.css";
 import "./styles/tailwind.css";
 import "./pages/Loginpage/login.css"
 import "./pages/Homepage/home.css"
+import "./pages/PopupProfilepage/popupprofile.css"
 ReactDOM.render(
   <React.StrictMode>
     <App />

@@ -1,13 +1,11 @@
 import React from "react";
+
 import {  Img, Text } from "components";
-import ForgetPasswordForm from "Forms/ForgetPasswordForm";
+import VerificationCodeForm from "Forms/VetificationCodeForm";
 
 
-
-
-const ForgetPasswordpagePage = () => {
-
-
+const VerificationCodepagePage = () => {
+  
   return (
     <>
       <div className="bg-black-900 flex flex-col font-sfpro items-center justify-start mx-auto p-[60px] md:px-10 sm:px-5 w-full">
@@ -29,25 +27,23 @@ const ForgetPasswordpagePage = () => {
               </div>
             </div>
             </div>
-            <div className="flex flex-col gap-[57px] items-center justify-start w-[41%] md:w-full">
-              <div className="flex flex-col gap-[9px] items-center justify-start">
+            <div className="flex flex-col gap-[51px] items-center justify-start w-[41%] md:w-full">
+              <div className="flex flex-col gap-[13px] items-center justify-start">
                 <Text
                   className="sm:text-4xl md:text-[38px] text-[40px] text-black-900 text-center"
                   size="txtSFProBold40"
                 >
-                  Forget Password
+                  Verification Code
                 </Text>
                 <Text
                   className="sm:text-2xl md:text-[26px] text-[28px] text-black-900 text-center"
                   size="txtSFProMedium28"
                 >
-                  Enter Your Email
+                  Check The Email & Enter The Code
                 </Text>
               </div>
-              
-              <div className="flex flex-col gap-[47px] items-center justify-start w-full">
-              <ForgetPasswordForm/>
-              </div>
+              <VerificationCodeForm/>
+
             </div>
           </div>
         </div>
@@ -56,4 +52,4 @@ const ForgetPasswordpagePage = () => {
   );
 };
 
-export default ForgetPasswordpagePage;
+export default VerificationCodepagePage;

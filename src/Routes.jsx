@@ -52,8 +52,8 @@ const PopupProfilepage = React.lazy(() => import("pages/PopupProfilepage"));
 const Homepage = React.lazy(() => import("pages/Homepage"));
 const FashionAvatarpage = React.lazy(() => import("pages/FashionAvatarpage"));
 const NewPasswordpage = React.lazy(() => import("pages/NewPasswordpage"));
-const VerificationCordpage = React.lazy(() =>
-  import("pages/VerificationCordpage"),
+const VerificationCodepage = React.lazy(() =>
+  import("pages/VerificationCodepage"),
 );
 const ForgetPasswordpage = React.lazy(() => import("pages/ForgetPasswordpage"));
 const Registerpage = React.lazy(() => import("pages/Registerpage"));
@@ -69,8 +69,8 @@ const ProjectRoutes = () => {
           <Route path="/registerpage" element={<Registerpage />} />
           <Route path="/forgetpasswordpage" element={<ForgetPasswordpage />} />
           <Route
-            path="/verificationcordpage"
-            element={<VerificationCordpage />}
+            path="/verificationcodepage"
+            element={<VerificationCodepage />}
           />
           <Route path="/newpasswordpage" element={<NewPasswordpage />} />
           <Route path="/fashionavatarpage" element={<FashionAvatarpage />} />

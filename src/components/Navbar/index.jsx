@@ -46,10 +46,10 @@ const Navbar = ({ onIconClick }) => {
     return (
         <>
 
-            <div className="flex md:flex-col flex-row md:gap-10 gap-[66px] items-center justify-end w-[77%] md:w-full z-[1]">
+            <div className="flex md:flex-col flex-row md:gap-10 gap-[66px] items-center justify-end w-[80%] md:w-full ">
                 <div className="flex md:flex-col flex-row md:gap-5 items-center justify-start w-[82%] md:w-full">
                     <Img
-                        className="h-[85px] sm:h-auto object-cover w-[9%] md:w-full"
+                        className="h-[85px] sm:h-auto  w-[9%] md:w-full"
                         src="images/img_myscpelogo1.png"
                         alt="myscpelogoOne"
                     />
@@ -136,11 +136,6 @@ const Navbar = ({ onIconClick }) => {
                             </Text>
                             </Link>
                         </div>
-                        <Img
-                            className="h-[5px] md:ml-[0] ml-[21px]"
-                            src="images/img_line75.svg"
-                            alt="lineSeventyFive"
-                        />
                     </div>
                 </div>
                 <div className="flex flex-row gap-5 items-center justify-between w-[15%] md:w-full">
@@ -170,9 +165,9 @@ const Navbar = ({ onIconClick }) => {
 
                     {/*Pop up start */}
                     {isPopupOpen && (
-                        <div className="absolute h-[694px] right-[235px] top-[125px] w-1/5 sm:w-full popup-content " ref={popupRef} >
+                        <div className="absolute h-[694px] right-[11%] top-[125px] w-1/5 sm:w-full popup-content " ref={popupRef} >
                             <Img
-                                className="h-12 mb-[-20.31px] ml-auto mr-[85px] rounded-[3px] z-[1]"
+                                className="h-12 mb-[-20.31px] ml-auto mr-[85px] rounded-[3px]"
                                 src="images/img_arrowup.svg"
                                 alt="arrowup_One"
                             />
